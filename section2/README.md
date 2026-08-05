@@ -1,9 +1,8 @@
 # Task 2.2 Part A — Classification Architecture
 
-This section defines immutable domain models, agent-client interfaces, and the
-public orchestration boundary. Part A intentionally does not execute either
-agent and does not implement batching, retries, missing-response recovery, or
-embedded-agent routing.
+This section defines immutable domain models, agent-client interfaces, primary
+batch recovery, and deterministic embedded-agent routing. HTTP retry behavior is
+intentionally deferred to a later part.
 
 ## Why a hand-written orchestrator
 
@@ -41,8 +40,20 @@ occurrences and their original indices rather than through a plain
 once. If the batch omits an occurrence, that exact input index is classified
 individually instead of being silently dropped. Every batch and individual
 response must copy its source sentence exactly before it is accepted. HTTP 429
-retry behavior and embedded-agent routing are intentionally reserved for later
-parts.
+retry behavior is intentionally reserved for a later part.
+
+## Embedded-agent routing and finalization
+
+Routing is enforced in Python from the validated
+`SentenceCategory.INCOMPLETE` value; model output cannot choose its successor.
+Other categories finish directly after the classifier. An incomplete result is
+analyzed once by the embedded agent, whose input copy, status, and spans are
+validated before finalization. For multiple complete spans, selection uses
+`Compound-Complex > Complex > Compound > Simple`, with the first source-order
+span winning a tie. The immutable `agent_path` records only `classifier` for
+direct results and both agents for incomplete routes. An `invalid_category`
+response is an orchestration contract violation because only incomplete inputs
+can reach this agent, so it raises instead of becoming a final classification.
 
 ## Adding a third specialist
 

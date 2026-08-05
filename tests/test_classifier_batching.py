@@ -189,13 +189,13 @@ def test_empty_tuple_calls_neither_classifier_method() -> None:
     classifier.classify_one.assert_not_called()
 
 
-def test_public_classify_executes_primary_then_stops_at_part_c() -> None:
-    """The public skeleton completes Part B before raising its Part C marker."""
+def test_public_classify_executes_primary_and_returns_final_result() -> None:
+    """The public method completes primary classification and finalization."""
     classifier = RecordingClassifierClient((_result("Input."),))
     pipeline = _pipeline(classifier)
 
-    with pytest.raises(NotImplementedError, match="Part C"):
-        pipeline.classify(["Input."])
+    result = pipeline.classify(["Input."])
 
     classifier.classify_batch.assert_called_once_with(("Input.",))
     classifier.classify_one.assert_not_called()
+    assert result.results[0].final_category is SentenceCategory.SIMPLE

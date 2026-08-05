@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import logging
 from collections import defaultdict, deque
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from enum import Enum
+from types import MappingProxyType
 from typing import Protocol
 
 LOGGER = logging.getLogger(__name__)
@@ -58,6 +59,16 @@ class EmbeddedStatus(str, Enum):
     NONE = "none"
     INCOMPLETE_ONLY = "incomplete_only"
     INVALID_CATEGORY = "invalid_category"
+
+
+_CATEGORY_COMPLEXITY: Mapping[SentenceCategory, int] = MappingProxyType(
+    {
+        SentenceCategory.SIMPLE: 1,
+        SentenceCategory.COMPOUND: 2,
+        SentenceCategory.COMPLEX: 3,
+        SentenceCategory.COMPOUND_COMPLEX: 4,
+    }
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -270,29 +281,30 @@ class EmbeddedSentenceAgentClient(Protocol):
 
 @dataclass(frozen=True, slots=True)
 class SentenceClassificationPipeline:
-    """Dependency-injected skeleton for deterministic classification routing."""
+    """Dependency-injected deterministic sentence-classification orchestrator."""
 
     classifier_client: ClassifierAgentClient
     embedded_agent_client: EmbeddedSentenceAgentClient
 
     def classify(self, sentences: Sequence[str]) -> ClassificationPipelineResult:
-        """Run primary classification before routing is implemented in Part C.
+        """Classify sentences and deterministically route incomplete results.
 
         Duplicate sentence strings are allowed and mapped by input occurrence.
-        Part B validates and recovers all primary classifier responses, then
-        deliberately stops before embedded-agent routing or finalization.
+        The primary classifier runs once for the frozen batch. Only validated
+        ``Incomplete`` results are sent to the embedded-sentence agent.
 
         Args:
             sentences: Ordered sentence inputs. Each string must be non-empty.
 
         Returns:
-            This Part B skeleton does not return a result yet.
+            One final classification per input occurrence in original order.
 
         Raises:
             InvalidSentenceError: If an input is not a non-empty string.
             TypeError: If ``sentences`` is not a non-string sequence.
-            NotImplementedError: Always after primary classification, because
-                final embedded-agent routing belongs to Part C.
+            ModelValidationError: If either client returns the wrong model type.
+            AgentResponseValidationError: If an agent mutates its input or
+                violates the deterministic routing contract.
         """
         if isinstance(sentences, (str, bytes)) or not isinstance(sentences, Sequence):
             raise TypeError("sentences must be a sequence of sentence strings")
@@ -300,12 +312,12 @@ class SentenceClassificationPipeline:
         for index, sentence in enumerate(frozen_sentences):
             _validate_sentence(sentence, field_name=f"sentences[{index}]")
 
-        self._classify_primary(frozen_sentences)
-        raise NotImplementedError(
-            "Task 2.2 architecture beyond primary classification is intentionally "
-            "incomplete; final embedded-agent routing is implemented in the next "
-            "part (Part C)"
+        primary_results = self._classify_primary(frozen_sentences)
+        final_results = tuple(
+            self._finalize_primary_result(indexed_result)
+            for indexed_result in primary_results
         )
+        return ClassificationPipelineResult(results=final_results)
 
     def _classify_primary(
         self,
@@ -388,6 +400,73 @@ class SentenceClassificationPipeline:
         indexed_results.sort(key=lambda indexed: indexed.input_index)
         return tuple(indexed_results)
 
+    def _finalize_primary_result(
+        self,
+        indexed_result: _IndexedClassifierResult,
+    ) -> FinalClassification:
+        """Route one primary result and construct its final classification."""
+        classifier_result = indexed_result.result
+        if classifier_result.category is not SentenceCategory.INCOMPLETE:
+            return FinalClassification(
+                original_sentence=classifier_result.sentence,
+                final_category=classifier_result.category,
+                original_classifier_category=classifier_result.category,
+                reason=classifier_result.reason,
+                embedded_sentence=None,
+                agent_path=(AgentName.CLASSIFIER,),
+            )
+
+        embedded_result = self.embedded_agent_client.analyze(
+            classifier_result.sentence
+        )
+        if not isinstance(embedded_result, EmbeddedAgentResult):
+            raise ModelValidationError(
+                "embedded_agent_client.analyze must return an EmbeddedAgentResult"
+            )
+        embedded_result.validate_input_copy(classifier_result.sentence)
+        reason = (
+            f"Classifier: {classifier_result.reason} "
+            f"Embedded agent: {embedded_result.reason}"
+        )
+        agent_path = (AgentName.CLASSIFIER, AgentName.EMBEDDED_SENTENCE)
+
+        if embedded_result.status is EmbeddedStatus.INVALID_CATEGORY:
+            raise AgentResponseValidationError(
+                "Embedded agent returned invalid_category after an Incomplete route"
+            )
+        if embedded_result.status is EmbeddedStatus.NONE:
+            return FinalClassification(
+                original_sentence=classifier_result.sentence,
+                final_category=SentenceCategory.INCOMPLETE,
+                original_classifier_category=SentenceCategory.INCOMPLETE,
+                reason=f"{reason} Outcome: No complete embedded sentence was found.",
+                embedded_sentence=None,
+                agent_path=agent_path,
+            )
+        if embedded_result.status is EmbeddedStatus.INCOMPLETE_ONLY:
+            return FinalClassification(
+                original_sentence=classifier_result.sentence,
+                final_category=SentenceCategory.INCOMPLETE,
+                original_classifier_category=SentenceCategory.INCOMPLETE,
+                reason=f"{reason} Outcome: Only incomplete nested content was found.",
+                embedded_sentence=None,
+                agent_path=agent_path,
+            )
+
+        selected_span = _select_complete_span(embedded_result)
+        if selected_span.category is None:
+            raise ModelValidationError(
+                "Selected complete embedded span must have a category"
+            )
+        return FinalClassification(
+            original_sentence=classifier_result.sentence,
+            final_category=selected_span.category,
+            original_classifier_category=SentenceCategory.INCOMPLETE,
+            reason=reason,
+            embedded_sentence=selected_span.text,
+            agent_path=agent_path,
+        )
+
 
 def _validate_sentence(value: object, *, field_name: str) -> None:
     """Require a non-empty sentence string without normalizing it."""
@@ -437,3 +516,21 @@ def _validate_embedded_status(
         raise ModelValidationError(
             "Status 'incomplete_only' requires one or more incomplete spans"
         )
+
+
+def _select_complete_span(result: EmbeddedAgentResult) -> EmbeddedSpan:
+    """Select the first highest-complexity complete span from a valid result."""
+    complete_spans = tuple(span for span in result.embedded_spans if span.is_complete)
+    if not complete_spans:
+        raise ModelValidationError(
+            f"Status {result.status.value!r} requires a selectable complete span"
+        )
+
+    def complexity(span: EmbeddedSpan) -> int:
+        if span.category not in _CATEGORY_COMPLEXITY:
+            raise ModelValidationError(
+                "Complete embedded span has no selectable sentence category"
+            )
+        return _CATEGORY_COMPLEXITY[span.category]
+
+    return max(complete_spans, key=complexity)

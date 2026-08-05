@@ -283,22 +283,28 @@ def test_classify_rejects_empty_sentence_before_skeleton_error() -> None:
 
 
 def test_classify_preserves_duplicate_inputs_by_index() -> None:
-    """Duplicates pass validation because future mapping is index-based."""
+    """Duplicates produce distinct final results through index-based mapping."""
     pipeline = SentenceClassificationPipeline(
         classifier_client=StubClassifierClient(),
         embedded_agent_client=StubEmbeddedClient(),
     )
 
-    with pytest.raises(NotImplementedError, match="Part C"):
-        pipeline.classify(("Same.", "Same."))
+    result = pipeline.classify(("Same.", "Same."))
+
+    assert tuple(item.original_sentence for item in result.results) == (
+        "Same.",
+        "Same.",
+    )
 
 
-def test_classify_is_an_explicit_skeleton() -> None:
-    """Part A performs no agent execution and clearly defers orchestration."""
+def test_classify_returns_final_result() -> None:
+    """The completed orchestrator returns a validated final classification."""
     pipeline = SentenceClassificationPipeline(
         classifier_client=StubClassifierClient(),
         embedded_agent_client=StubEmbeddedClient(),
     )
 
-    with pytest.raises(NotImplementedError, match="next part"):
-        pipeline.classify(("Birds sing.",))
+    result = pipeline.classify(("Birds sing.",))
+
+    assert result.results[0].final_category is SentenceCategory.SIMPLE
+    assert result.results[0].agent_path == (AgentName.CLASSIFIER,)
