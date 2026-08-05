@@ -33,16 +33,24 @@ retain its exact spelling, capitalization, and punctuation.
 
 1. Copy every extracted span verbatim. Never correct spelling or grammar.
 2. Preserve source order. Do not combine non-contiguous words.
-3. If exactly one complete embedded sentence exists, return `single`.
-4. If multiple distinct complete embedded sentences exist, return `multiple`
+3. Classify every complete span as `Simple`, `Compound`, `Complex`, or
+   `Compound-Complex`. A complete span cannot be `Incomplete`. An incomplete span
+   must use `category: null`.
+4. If exactly one complete embedded sentence exists, return `single`.
+5. If multiple distinct complete embedded sentences exist, return `multiple`
    and include each once in source order.
-5. If no candidate embedded span exists, return `none` with an empty array.
-6. If nested speech, thought, or content is visible but that span is itself
+6. If no candidate embedded span exists, return `none` with an empty array.
+7. If nested speech, thought, or content is visible but that span is itself
    incomplete, return it verbatim with `is_complete: false`. If there are no
    complete embedded spans, use status `incomplete_only`; otherwise use
    `multiple` and include both complete and incomplete spans in source order.
-7. Never invent an omitted subject, verb, conjunction, or punctuation mark.
-8. Do not explain by offering a corrected sentence.
+8. Never invent an omitted subject, verb, conjunction, or punctuation mark.
+9. Do not explain by offering a corrected sentence.
+
+When a `multiple` result contains more than one complete span, the orchestrator
+selects the highest category deterministically using this precedence:
+`Compound-Complex > Complex > Compound > Simple`. The agent must still return
+every span in source order; it does not perform the orchestration step.
 
 ## Output format
 
@@ -55,7 +63,8 @@ Return JSON only, with exactly these keys and no Markdown:
   "embedded_spans": [
     {
       "text": "<contiguous source span copied verbatim>",
-      "is_complete": true
+      "is_complete": true,
+      "category": "Simple | Compound | Complex | Compound-Complex"
     }
   ],
   "reason": "<brief extraction reason without correction>"
@@ -78,7 +87,7 @@ Input:
 Output:
 
 ```json
-{"input_sentence":"Becaus she said I dont need the reciept","status":"single","embedded_spans":[{"text":"I dont need the reciept","is_complete":true}],"reason":"The incomplete outer reason clause contains one complete reported proposition."}
+{"input_sentence":"Becaus she said I dont need the reciept","status":"single","embedded_spans":[{"text":"I dont need the reciept","is_complete":true,"category":"Simple"}],"reason":"The incomplete outer reason clause contains one complete reported proposition."}
 ```
 
 ### No embedded sentence
@@ -106,7 +115,7 @@ Input:
 Output:
 
 ```json
-{"input_sentence":"Becuz Mira said I lost it and he told us the shop is shut","status":"multiple","embedded_spans":[{"text":"I lost it","is_complete":true},{"text":"the shop is shut","is_complete":true}],"reason":"Two complete reported propositions occur inside the incomplete outer clause."}
+{"input_sentence":"Becuz Mira said I lost it and he told us the shop is shut","status":"multiple","embedded_spans":[{"text":"I lost it","is_complete":true,"category":"Simple"},{"text":"the shop is shut","is_complete":true,"category":"Simple"}],"reason":"Two complete reported propositions occur inside the incomplete outer clause."}
 ```
 
 ### Embedded content is itself incomplete
@@ -120,5 +129,5 @@ Input:
 Output:
 
 ```json
-{"input_sentence":"Becaus he mutterd that old broken window","status":"incomplete_only","embedded_spans":[{"text":"that old broken window","is_complete":false}],"reason":"The nested content is visible but lacks a finite predicate, so it is not promoted to a complete embedded sentence."}
+{"input_sentence":"Becaus he mutterd that old broken window","status":"incomplete_only","embedded_spans":[{"text":"that old broken window","is_complete":false,"category":null}],"reason":"The nested content is visible but lacks a finite predicate, so it is not promoted to a complete embedded sentence."}
 ```

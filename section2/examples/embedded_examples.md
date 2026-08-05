@@ -1,7 +1,11 @@
 # Difficult Embedded-Agent Examples
 
 Both inputs are already labelled `Incomplete`. All extracted text is copied
-verbatim; no spelling, grammar, or punctuation is corrected.
+verbatim; no spelling, grammar, or punctuation is corrected. Every complete span
+has a structural category, while an incomplete span would use `category: null`.
+For multiple complete spans, source order is retained and the orchestrator later
+selects the highest category using `Compound-Complex > Complex > Compound >
+Simple`.
 
 ## 1. Embedded sentence exists
 
@@ -14,7 +18,7 @@ Input:
 Expected output:
 
 ```json
-{"input_sentence":"Although Nida whisperd the keys are under the mat","status":"single","embedded_spans":[{"text":"the keys are under the mat","is_complete":true}],"reason":"The incomplete outer concession clause contains one contiguous complete proposition."}
+{"input_sentence":"Although Nida whisperd the keys are under the mat","status":"single","embedded_spans":[{"text":"the keys are under the mat","is_complete":true,"category":"Simple"}],"reason":"The incomplete outer concession clause contains one contiguous complete proposition."}
 ```
 
 Why difficult: The whole input is an `Although` fragment, but the reported
