@@ -16,10 +16,10 @@ does not perform text recognition.
    glyphs. A single intensity channel reduces computation and makes contrast and
    threshold operations less sensitive to ink colour.
 4. **CLAHE contrast enhancement:** Contrast Limited Adaptive Histogram
-   Equalization improves local ink-to-paper contrast under shadows, faded ink,
+   Equalization improves local ink-to-paper contrast under shadows, low-contrast handwriting,
    and uneven lighting. Its contrast limit avoids strongly amplifying noise.
 5. **Median-blur noise removal:** A small median filter suppresses isolated
-   salt-and-pepper noise while preserving edges better than ordinary averaging.
+   isolated scanning artifacts and salt-and-pepper noise while preserving edges better than ordinary averaging.
    Preserved stroke boundaries are important for handwritten character shapes.
 6. **Adaptive thresholding:** A locally calculated threshold separates ink from
    paper even when illumination varies across the page. The result is a binary
@@ -28,14 +28,24 @@ does not perform text recognition.
    `minAreaRect`, then corrected using an affine rotation. Straighter text lines
    improve line segmentation and keep adjacent characters in a more consistent
    reading order. Blank images are retained safely because they have no reliable
-   angle to correct.
-8. **Morphological opening and closing:** Opening removes small isolated
-   foreground specks. Closing reconnects tiny breaks within pen strokes. The
-   operations run on an inverted foreground mask so they affect ink rather than
-   the white page, and use a conservative kernel to avoid distorting handwriting.
-9. **Return a NumPy array:** The final two-dimensional `uint8` array uses black
-   text on a white background, a conventional representation that can be passed
-   directly to later OCR or inspection code without another file round trip.
+   angle to correct. A limitation is that page borders or other large foreground
+   artifacts can dominate the foreground bounding rectangle and affect the
+   estimated deskew angle.
+8. **Morphological closing:** A light closing operation reconnects tiny breaks
+   within pen strokes. It runs on an inverted foreground mask with a 2x2
+   elliptical kernel so it affects ink rather than the white page. Opening is
+   intentionally avoided because it may erase thin strokes and punctuation.
+9. **Return a normalized binary NumPy array:** The final two-dimensional `uint8` array uses black
+   text on a white background. Its values are explicitly normalized to `{0, 255}`
+   so it can be passed directly to later OCR or inspection code without another
+   file round trip.
+
+## Design considerations
+
+The preprocessing pipeline intentionally applies lightweight image enhancement
+before OCR while avoiding aggressive transformations that could alter the
+writer's original handwriting. The goal is to improve readability without
+changing the semantic structure of the document.
 
 ## Intentionally omitted technique
 

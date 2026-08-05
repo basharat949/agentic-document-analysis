@@ -42,7 +42,7 @@ def preprocess_image(image_path: ImagePath) -> np.ndarray:
 
     The pipeline loads and validates the image, converts it to grayscale,
     enhances local contrast, removes impulse noise, creates a binary image,
-    corrects skew, and cleans character shapes with morphology.
+    corrects skew, and closes small gaps in character shapes with morphology.
 
     Args:
         image_path: Path to an image that OpenCV can decode.
@@ -92,6 +92,8 @@ def preprocess_image(image_path: ImagePath) -> np.ndarray:
 
         deskewed = _deskew(binary)
         processed = _apply_morphology(deskewed)
+        processed = np.where(processed > 0, 255, 0).astype(np.uint8, copy=False)
+        LOGGER.debug("Normalized output to binary uint8 values")
     except cv2.error as exc:
         LOGGER.exception("OpenCV failed while preprocessing %s", path)
         raise ImagePreprocessingError(
@@ -189,13 +191,12 @@ def _deskew(binary: np.ndarray) -> np.ndarray:
 
 
 def _apply_morphology(binary: np.ndarray) -> np.ndarray:
-    """Remove isolated marks and close small gaps in foreground strokes."""
+    """Close small gaps in foreground strokes with light morphology."""
     foreground = cv2.bitwise_not(binary)
     kernel = cv2.getStructuringElement(
-        cv2.MORPH_RECT,
+        cv2.MORPH_ELLIPSE,
         _MORPHOLOGY_KERNEL_SIZE,
     )
-    opened = cv2.morphologyEx(foreground, cv2.MORPH_OPEN, kernel)
-    closed = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, kernel)
-    LOGGER.debug("Applied morphological opening and closing")
+    closed = cv2.morphologyEx(foreground, cv2.MORPH_CLOSE, kernel)
+    LOGGER.debug("Applied morphological closing")
     return cv2.bitwise_not(closed)
