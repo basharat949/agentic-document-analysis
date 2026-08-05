@@ -1,15 +1,12 @@
-"""Immutable models and interfaces for sentence-classification orchestration.
-
-Part A intentionally defines only the architecture boundary. Agent execution,
-batching, retries, response recovery, and routing are implemented in a later
-part of Task 2.2.
-"""
+"""Deterministic sentence-classification models and orchestration."""
 
 from __future__ import annotations
 
 import logging
+import math
+import time
 from collections import defaultdict, deque
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from enum import Enum
 from types import MappingProxyType
@@ -32,6 +29,62 @@ class InvalidSentenceError(ModelValidationError):
 
 class AgentResponseValidationError(ModelValidationError):
     """Raised when an agent response does not preserve its source input."""
+
+
+def _validate_retry_number(
+    value: object,
+    *,
+    field_name: str,
+    minimum: float,
+) -> None:
+    """Require a finite, non-boolean numeric retry-policy value."""
+    if (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not math.isfinite(value)
+        or value < minimum
+    ):
+        raise ModelValidationError(
+            f"{field_name} must be a finite number greater than or equal to {minimum}"
+        )
+
+
+class RateLimitError(ClassificationError):
+    """Raised by agent adapters when an HTTP 429 rate limit occurs."""
+
+
+@dataclass(frozen=True, slots=True)
+class RetryPolicy:
+    """Immutable exponential-backoff configuration for agent calls."""
+
+    max_attempts: int = 3
+    initial_delay_seconds: float = 0.25
+    multiplier: float = 2.0
+    max_delay_seconds: float = 2.0
+
+    def __post_init__(self) -> None:
+        """Validate retry counts and finite non-negative delay values."""
+        if (
+            isinstance(self.max_attempts, bool)
+            or not isinstance(self.max_attempts, int)
+            or self.max_attempts < 1
+        ):
+            raise ModelValidationError("max_attempts must be an integer of at least 1")
+        _validate_retry_number(
+            self.initial_delay_seconds,
+            field_name="initial_delay_seconds",
+            minimum=0.0,
+        )
+        _validate_retry_number(
+            self.multiplier,
+            field_name="multiplier",
+            minimum=1.0,
+        )
+        _validate_retry_number(
+            self.max_delay_seconds,
+            field_name="max_delay_seconds",
+            minimum=0.0,
+        )
 
 
 class SentenceCategory(str, Enum):
@@ -285,6 +338,8 @@ class SentenceClassificationPipeline:
 
     classifier_client: ClassifierAgentClient
     embedded_agent_client: EmbeddedSentenceAgentClient
+    retry_policy: RetryPolicy = RetryPolicy()
+    sleep: Callable[[float], None] = time.sleep
 
     def classify(self, sentences: Sequence[str]) -> ClassificationPipelineResult:
         """Classify sentences and deterministically route incomplete results.
@@ -343,7 +398,10 @@ class SentenceClassificationPipeline:
             return ()
 
         LOGGER.info("Calling primary classifier batch with %d inputs", len(sentences))
-        batch_responses = self.classifier_client.classify_batch(sentences)
+        batch_responses = self._call_with_retry(
+            "classifier batch",
+            lambda: self.classifier_client.classify_batch(sentences),
+        )
         if isinstance(batch_responses, (str, bytes)) or not isinstance(
             batch_responses, Sequence
         ):
@@ -388,7 +446,12 @@ class SentenceClassificationPipeline:
         LOGGER.debug("Missing primary-classifier input indices: %s", missing_indices)
 
         for input_index in missing_indices:
-            response = self.classifier_client.classify_one(sentences[input_index])
+            response = self._call_with_retry(
+                "classifier single-item recovery",
+                lambda sentence=sentences[input_index]: (
+                    self.classifier_client.classify_one(sentence)
+                ),
+            )
             if not isinstance(response, ClassifierAgentResult):
                 raise ModelValidationError(
                     "classify_one response for input index "
@@ -416,8 +479,9 @@ class SentenceClassificationPipeline:
                 agent_path=(AgentName.CLASSIFIER,),
             )
 
-        embedded_result = self.embedded_agent_client.analyze(
-            classifier_result.sentence
+        embedded_result = self._call_with_retry(
+            "embedded-sentence analysis",
+            lambda: self.embedded_agent_client.analyze(classifier_result.sentence),
         )
         if not isinstance(embedded_result, EmbeddedAgentResult):
             raise ModelValidationError(
@@ -466,6 +530,37 @@ class SentenceClassificationPipeline:
             embedded_sentence=selected_span.text,
             agent_path=agent_path,
         )
+
+    def _call_with_retry[T](
+        self,
+        operation_name: str,
+        operation: Callable[[], T],
+    ) -> T:
+        """Call an agent operation with bounded retry for rate limits only."""
+        delay = min(
+            self.retry_policy.initial_delay_seconds,
+            self.retry_policy.max_delay_seconds,
+        )
+        for attempt in range(1, self.retry_policy.max_attempts + 1):
+            try:
+                return operation()
+            except RateLimitError:
+                if attempt == self.retry_policy.max_attempts:
+                    raise
+                LOGGER.warning(
+                    "Rate limit during %s; retrying attempt %d/%d after %.3f seconds",
+                    operation_name,
+                    attempt + 1,
+                    self.retry_policy.max_attempts,
+                    delay,
+                )
+                self.sleep(delay)
+                delay = min(
+                    delay * self.retry_policy.multiplier,
+                    self.retry_policy.max_delay_seconds,
+                )
+
+        raise AssertionError("Retry loop terminated without returning or raising")
 
 
 def _validate_sentence(value: object, *, field_name: str) -> None:

@@ -55,6 +55,17 @@ direct results and both agents for incomplete routes. An `invalid_category`
 response is an orchestration contract violation because only incomplete inputs
 can reach this agent, so it raises instead of becoming a final classification.
 
+## Rate-limit retry and backoff
+
+Retries are limited to the explicit `RateLimitError`, which agent adapters use
+to represent HTTP 429 responses. `max_attempts` includes the first request, and
+each subsequent delay grows exponentially from the configured initial delay
+until reaching the configured cap. The sleep callable is injected into the
+immutable pipeline, allowing tests to record delays without waiting. Model
+validation errors, response-contract violations, and arbitrary exceptions fail
+immediately: retrying them would hide deterministic defects rather than relieve
+temporary rate limiting.
+
 ## Adding a third specialist
 
 A future specialist can be introduced by adding its name to `AgentName`, defining
