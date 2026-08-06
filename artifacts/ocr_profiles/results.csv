@@ -1,0 +1,4682 @@
+page,source_image,profile,psm,processed_image,raw_text,mean_confidence,median_confidence,low_confidence_token_ratio,non_empty_token_count,ground_truth_available,cer,wer,sentence_f1,composite_score,sfs,page_rank,overall_rank
+page-1,samples/testing_pages/page-1.png,grayscale,4,artifacts/ocr_profiles/page-1/grayscale.png,"D.G4 i= la Po
+(Ps ceases: De ETE:
++) 4 ea a ,
+ft
+J are Fae se mei ta
+a ball Cu,
+¥.
+ora ral
+rs Nea
+0; Mong 4 phen...
+fh ye r= -,
+r =,
+ae © fra rt: ae
+ira",31.068181818181817,33.5,0.9318181818181818,44,True,3.6923076923076925,8.8,0.0,0.0,0.0,4,3
+page-1,samples/testing_pages/page-1.png,grayscale,6,artifacts/ocr_profiles/page-1/grayscale.png,"SSS eee ,
+——E ——_ SS ey, —— ee
+=i ryt | A} ‘ = ;
+_.| do wad, a 2 C }
+tips 4.00 the hic lomily qieaks
+a
+SS Sa OS
+Weptube the out of Lhe wack",34.84615384615385,30.0,0.8205128205128205,39,True,3.358974358974359,7.8,0.0,0.0,0.0,2,4
+page-1,samples/testing_pages/page-1.png,grayscale,11,artifacts/ocr_profiles/page-1/grayscale.png,"—_——
+)
+cco
+le
+4
+Sco
+site 7
+SS
+“Ep a
+ALT
+ae
+aps ait Be
+aoa
+| he
+is
+2a ree
++3
+ft
+iad,
+]
+ae
+=
+Le each
+Hage i all
+ate ae
+tet Ncclt
+SS = ie
+—
+(OO NE Tie ~
+era.
+-
+&
+ree
+-
+at il
+fy
+As
+ora ral
+5) ae ay
+Oe SiS
+thee bbe
++0) ne Vaca...
+ey
+hf ies
+a ll
+——
+|
+Dia
+xo
+-_-.",31.026315789473685,31.0,0.881578947368421,76,True,6.282051282051282,15.2,0.0,0.0,0.0,7,7
+page-1,samples/testing_pages/page-1.png,grayscale,12,artifacts/ocr_profiles/page-1/grayscale.png,"Ch Whe
+Sco
+5/7
+| J
+A, ns
+IAL 7:00
+Ce eC UENCE I |
+BF
+is
+card — he sere.
+ft
+Pel
+J aiel
+tae ee ee ot 2
+3 recs lof
+SS = ie
+—
+OO the his Caw
+erfa
+ree
+-
+a
+) = ae
+ler
+ul
+Ip
+-
+Foi
+eae.
+i
+wif
+i
+;
+#
+7
+|
+i
+5 es
+Hep)
+mh
+a ill
+Pl
+Va pi
+ee Theo...
+|
+z i
+hf ies
+a ll
+a)
+carta
+Dia
+ca xh
+5
+-_-.",36.770114942528735,33.0,0.7816091954022989,87,True,6.82051282051282,17.4,0.0,0.0,0.0,9,10
+page-1,samples/testing_pages/page-1.png,clahe_median_adaptive,4,artifacts/ocr_profiles/page-1/clahe_median_adaptive.png,,,,0.0,0,True,1.0,1.0,0.0,0.0,0.0,1,1
+page-1,samples/testing_pages/page-1.png,clahe_median_adaptive,6,artifacts/ocr_profiles/page-1/clahe_median_adaptive.png,"WDiear¢ eee
+; Eloi Deeper 000.
+| Lae ee ae: whe paie : colle : !
+|. dogs n Tadeo satu ae Sleetlee _,
+| ye qok score eyed = A Aa |,
+_ At Ebner - Pn, fs — fut pais _féte at a
+=|! Te = Su iste sia, * exod 1y dre yet) __. !
+teieiaHiag ec co (an bn aly __
+Laden 6 Siad ewiel| 1 Ba bugfenip Cael, dele |
+ita/ale rae, ek wie Sind Taeleo : 3 acer life |
+= er TE ad gad WAS tebe is 2 |!
+~ | sera i's fprhep—2 / “Coal hie} tz ee
+eS ar 5 fb ee fof etre |
+~j-fvety die bhepe oscele pak pee |
+Bae an der ee ea ne |
+TE. oe Hcuche: ce —fdatald_h Pe a .
+| he Ba zi Se CIE CS Oa me",29.22758620689655,27.0,0.8896551724137931,145,True,14.0,29.0,0.0,0.0,0.0,10,6
+page-1,samples/testing_pages/page-1.png,clahe_median_adaptive,11,artifacts/ocr_profiles/page-1/clahe_median_adaptive.png,"|
+——_——_———
+— —— ———
+""
+=F
+CL
+—
+|
+_ he |
+4
+rag eons
+—
+| I
+|
+—
+Sccigel
+=<
+SHET MES by A
+aS
+ma
+—=—=
+lS
+—_—""
+(epee,
+fa
+RES
+Cer
+a}
+if
+eeidbam
+&
+ee 5)
+pale a Le ae
+i
+lade
+Bch tad,
+as
+ie
+— pe
+ay
+———
+ora
+et
+—— =4iS
+a
+| #
+LAS?
+ie
+eS
+___ Fe
+at
+I
+SS
+=
+Sal,
+. Py, <n
+ty
+Mic
+Le
+a —_——
+NM
+it fre ene Sree: 4
+[
+1
+B ty
+die 4 fd
+i
+en 6) a
+SL Ce
+A
+Ba!
+Ge
+df
+Lb,
+a =— f
+=! rec
+eI
+ie
+Bee |
+vo
+=
+op
+|
+41tis vere
+Re
+o _.&le
+ral
+laden...
+ia
+pit
+Gp.
+fe
+i
+|
+a
+nw |
+Of
+ye
+i ‘fang
+(afl S_-
+aAcgey pe. Te ee
+AAG
+|
+hohe ih
+=—s
+(ome
+wee
+La ee <i
+<
+ead
+PD i
+Pc
+obs fed
+wil
+at oo
+Fi.
+Bs me
+Ise
+Be
+It A a
+ef
+ord
+xf
+i ¥]
+Ch -
+a
+ea
+a a)
+_
+2
+oe ee SS ee
+nn, ee
+al
+—e
+ed
+_[.
+|
+al
+ay a
+ne oe
+|
+——
+i a!
+~ ¢
+fh
+cae,
+a
+ip
+“13
+Chev he fhe
+ba Eh ae ——
+aT si.
+Ge: fe _Gitel>
+EAL.
+ei | dae
+“ae OE
+—_—_
+| hie",31.07296137339056,30.0,0.8927038626609443,233,True,19.025641025641026,46.6,0.0,0.0,0.0,12,13
+page-1,samples/testing_pages/page-1.png,clahe_median_adaptive,12,artifacts/ocr_profiles/page-1/clahe_median_adaptive.png,"|
+——_——_———
+— —— ———
+""
+CL
+—
+|
+_ he |
+4
+rag eons
+|
+=
+f
+_——————<
+Sccigel
+==
+SHE TOM SSS
+aS
+i
+= ee
+(epee,
+2
+)
+RES
+Cer
+if
+eeidbam
+al
+©
+a hig A PN
+lade
+Bch tad,
+as
+rar
+=
+— pe
+Hh
+ae: oe
+———
+ora
+err
+a
+—
+LAS?
+a
+—_—
+___ Fe
+ve
+at
+I
+Wes
+all
+14g
+a —_——
+NM
+i
+=r
+1
+B ty
+die 4 fd
+!
+1 LGte een S10 oz
+en 6) a
+SL Ce
+4
+Ba!
+Ge
+df
+L
+o [
+¢
+iE
+de
+-4
+op
+|
+41tis vere
+Re
+7
+o _.&le
+ral
+la anc Om
+pit
+—_—__—
+Gp.
+fe
+i
+a
+nw |
+Of
+ye
+i ‘fang
+wit
+Ks
+4
+aAcgey pe. Te ee
+ae
+hohe ih
+=—s
+(ome
+wee
+La ee <i
+3
+=
+PD i
+Pc
+obs fed
+aT i
+ee if
+|
+i
+Fi.
+ey
+[se
+lt A a
+ef
+ord
+xf
+i ¥]
+Lf
+fic.
+Ch -
+—_
+ea.
+a a)
+lt
+—
+Se
+_
+2
+oe ee SS ee
+nn, ee
+al
+ie
+Mexef
+ay a
+a an ol
+|
+——
+i a!
+|
+I
+fh
+cae,
+i
+vit th
+:
+San
+“13
+Chev he fhe
+ba Eh ae ——
+eet eer
+i
+oa
+.
+=
+a
+Sede.
+AL
+a re
+a
+f
+hie
+ram
+UG oy
+—",31.467532467532468,31.0,0.8961038961038961,231,True,18.435897435897434,46.2,0.0,0.0,0.0,11,12
+page-1,samples/testing_pages/page-1.png,median_adaptive_no_clahe,4,artifacts/ocr_profiles/page-1/median_adaptive_no_clahe.png,"agg oth Deca baer Le 208%
+aa os
+ii boat =
+a > 2 gc -
+oop rp -— a a rien oe ;
+r a é. gh wid oes vps Fer wd ha 2 co ae
+ewe 6 foam a ee oo 2.0
+Le ST bf, ots So 7 "">
+J ea \' 1m. e j . 3 °
+a = 5
+| fp ‘ i
+Ae = , . oo .
+ee a “ Ln | ee et tite! =h Lat °
+| 4 i | 3 a | ae al
+q al
+a EU = . oo er om, 7) eo Arr ry
+| its — e- gee anh 2 J . we ‘ss = shad cl = i. %
+_ i !
+ey ene ee SSS eae i b!
+Bo ee Ee ds dames TB ooy
+- : ol ke pe .
+: Pia 1 ao ‘ ae 4 a oy""
+r
+ms i a ae 3 ees ; Cet -
+fe whe
+° 7 . in
+! ” e 3 .
+” toy 5 3 ai) as.
+é, a ie ; sep a Ab og ae f te = a es A eee ad — \ as
+2 FS a OF a a Ee ont ae Bae a2
+, a i io ane feo r 3 + Nee aye —_ ai a ;
+wy - Lee Ged ao Lee i
+a in . ‘
+i aye Ee IOS BOC é ‘The as
+dhe. Sp EE la hed . act card \y aan
+ee Fy Us a e ¢ i £3 ad PS fgden chy ibe],
+we. ; . me bite cone ee ek . Goa Hod
+WA meee re ae ots 7 G é Poet 2 AL ai
+: . i 7 poo = og , 0 \. iy
+7 iE rg OA By A _ i ! a wo oe eer ar a £1, : ai fy = nts ba. i
+‘ } ~] ? | maze” | = if 1 i ; -_ i a am :
+wm gis oe as! wy ” ae ee oe any . a ar | + - & 1 &. ‘ ete 22 & -
+be mm at _f: rn a a eck soem be ca 7 (ea & fl Tr",29.192708333333332,27.0,0.8854166666666666,384,True,27.666666666666668,76.8,0.0,0.0,0.0,15,15
+page-1,samples/testing_pages/page-1.png,median_adaptive_no_clahe,6,artifacts/ocr_profiles/page-1/median_adaptive_no_clahe.png,"PO ON
+L}, i pte : side Ca a
+| , Sey : A j _. (eg _— ee oe ee > 7 Sco ey a - -_ : - - a
+~ Le a ae! je me eet a a) , ‘ ee an oe al
+(CSS tof Lite jet oo Oe,
+‘ £ 5 x ‘ : Sng ‘ ff 2 To oe a 3
+t i aot eo - A Be = 2 "" ee ort
+Pees ee
+1 PTS qaste si ci cey ge ye ee LACE TT Oo,
+er f¢ 7 a er !
+| ai lie -—CGR.RES Cpt £—_eP _ Sa) Yoo g 4
+Létpefee Sec Catt ot ee i S eft Ques
+| ; A ~ i i Lege’ é i a : |' ei
+_iciete} net Mie Roe fe PS! pee habe
+Be SY Sea. fem | exe @G@ sem caret orig;
+eer Wie feel gad Gis. fusetbebysig |
+weekube tr. GT Ge fede et Loin,
+q ~ 1 . —r il ; } j : :
+: pth ed nee ! re er ne eed ee eee eee oA arn Pn ce .
+| - “eo | ‘ ! ty _ ‘5 we. ) ri fe a i i |
+a y id ‘i
+en oa cx —_ . e f. 3 =A ‘cm } ’ oe,
+= ; ra ary | P > a fy = Pg A Mas? a .
+- . wt | a; . an tl a ry —— i . ra \ f
+. bese h . a ae ee ee ,",28.50375939849624,25.0,0.8834586466165414,266,True,20.28205128205128,53.2,0.0,0.0,0.0,13,11
+page-1,samples/testing_pages/page-1.png,median_adaptive_no_clahe,11,artifacts/ocr_profiles/page-1/median_adaptive_no_clahe.png,"—
+=
+Sar ant
+“a
+—
+7
+|
+I
+—
+ee ee
+lex fe
+ace Oe
+I ~
+in -*
+one by
+of
+qo
+rm
+Decel
+{ =)
+a oes
+ner LS
+= ere =
+——_
+—
+———F)
+—
+A
+ope npr
+-_—_—
+t
+Fa,
+ve
+ct
+Fd | i
+it
+<
+=
+|
+mem
+=
+or 9
+as lp = Se,
+mA
+i!
+a | a
+--— =
+bod}
+a Zé °
+cs
+&
+a tf
+wil ae 5 si
+3
+i)
+""
+.
+ce
+aif
+a i
+measles? 2 seme,
+wu”
+I. =
+=<?
+Set he te Fk
+toe
+oma SF
+i o
+Lam)
+COR
+“ e ral i [a
+4
+a9
+‘a
+‘
+ov
+bem
+i ioe
+Poa]
+ty”, tits !
+a!
+be
+eens
+""a
+Peale
+mar eof
+2 Blt SOS
+fae
+— Fe
+oa
+2 |
+é
+OAL
+ae
+f
+TT.
+4
+My
+fs
+ii i!
+ee
+Gm on
+a
+peed eos
+# in Lr
+ao
+phe
+c=
+“at
+oot
+ts
+aur Gas d
+f Ta
+ah
+fi
+Le
+on
+lH
+hh jj
+ey
+« a ile 03
+ey ae ee
+remee be.
+ta oe | =
+8.
+kas
+atl
+a,
+Bae
+ee es
+f
+2,
+em
+ad
+—
+cma? >,
+ey ae =,
+weet?
+a
+ae hi ed
+a ae
+a
+oi
+A
+3
+tI Cok
+fe,
+—_
+fo.
+i?
+ri ni we
+ai
+-
+1G
+ey a
+if
+r
+vn
+2
+c
+24
+|
+Pade
+a a
+a L.
+ete
+soe
+Paar
+e a
+a ed
+ble
+Peo ft
+cptben |
+=
+peek
+or ar
+ay
+‘
+,
+———
+=
+ay
+L
+a
+4
+a va.
+r 3 Slee,
+=
+ae
+Die
+f
+=
+——
+ee ct ee
+ig Ver
+fue
+Cane
+Jif Seed? 3 see
+.
+“| a,
+oe ef
+Py
+_ a =
+er
+a |i
+6
+4
+AC
+- cami
+8
+!
+: i’. ee al
+fs
+v
+the fr ain “hi ig a
+Karnsily
+oe SL
+3 ge ee.
+|
+=
+fy
+Ate
+see cme
+a
+i
+ei (eo
+a
+ene 4
+o-
+f. 5
+oe
+bef
+eye af
+ob
+aos
+jJedee AG: :
+fe
+‘
+-
+i a e ¢ f
+mo me ee
+nr ed ma Pn
+""8
+c
+=
+=
+""|
+os ek
+i
+a
+ombes
+8
+¢
+di
+er
+f
+|
+{|
+t)
+,
+we
+gab
+iT
+e
+V
+re
+1
+Il
+wage
+Lip
+Ly
+u
+- ‘
+ee
+ad
+é al
+Wacom > lise os:
+—
+‘tse, fas ims
+Ji
+I
+a
+D
+be
+=
+\.
+bi
+i""
+ee
+I:
+fh.
+if Heats aa
+jgla
+al?
+oo
+Me
+""L ee]
+vil
+ie
+fe tA.
+om
+=!
+PI
+=""
+-
+fo
+a
+iy
+2
+I |
+£
+=
+-
+a)
+2
+n
+we
+due
+LF a
+]
+am
+ase
+j.
+hal
+fi
+on
+Revere
+ce 2
+a
+‘tee =
+-
+ee
+2
+fee
+i
+M)
+f
+I
+— fs
+one |
+|.
+ve
+__ fe ci
+dog? fife
+ff
+poet a
+fare
+weet oe
+i
+=
+i!
+»
+ay
+ee
+bie ee vie
+f
+Mets
+ea acez
+ar?
+oC —
+ow
+lea
+vr €
+&
+ves
+hea
+Sine a ee
+vie
+=, fl
+ait
+a
+i -
+f
+fi
+— te
+af
+=. S-
+ake
+A
+‘L. 1
+ia}
+n
+Fs]
+~ A
+a
+he
+oe
+ws ewe di
+oe
+ed
+""y
+ll
+ad
+\ ¢
+cam |
+8
+is
+a
+y
+[:
+ror ype
+a
+q
+|
+y
+4
+i ad
+fees)
+ef
+= be
+a
+rial
+aw
+vou
+ae
+—""
+8 oe
+fy
+—
+J",36.595600676818954,35.0,0.8138747884940778,591,True,45.30769230769231,118.2,0.0,0.0,0.0,17,17
+page-1,samples/testing_pages/page-1.png,median_adaptive_no_clahe,12,artifacts/ocr_profiles/page-1/median_adaptive_no_clahe.png,"—
+;
+—_,
+=
+Sard}
+[
+[
+i.
+“a
+7
+|
+——_
+lead
+_:_
+q. ad tal
+=o =
+“|
+|
+a i
+——
+ao
+G
+wi.
+L
+rs
+at
+AC Ie
+Pe
+a
+al&
+|
+[
+J
+<2
+an
+_.. fl
+=
+>
+sas
+—
+———— 2.
+—
+A
+ia
+we ee
+fp eo petra
+t
+eo-8
+it
+4
+;
+Par
+ct
+Al
+it
+=
+=e
+or 9
+oo
+|:
+mA
+of
+_—- a hk oe ee
+ie eo
+I
+a
+an
+ae
+a
+:
+a an ae
+a a
+i
+ee
+.-
+i
+=>
+on an
+7)
+ae
+ee Lis?
+oe
+fo
+r
+£4
+Es
+tee are ae a
+Chet Roe
+om
+de OL
+Lam)
+ao
+F
+fe
+COtte¢
+i
+a9
+‘a
+a
+= bem
+esa
+q
+Poa]
+oe |
+an
+es
+fe be
+2
+a 1
+a
+_—= Ss =
+4
+|
+2 Blt SOS
+4
+ae
+ee Fe
+!
+Fe ot
+:
+3 |
+4
+A
+cs
+f
+TT.
+My
+fl
+|.
+Gm on
+peed eos
+|
+d
+nos
+=
+.
+A. ra “ii 6! 0
+ie
+a. ee.
+~~ Seue_ Gas
+f fo)
+ele we TS
+ef ee oe ee
+ah
+fi
+Le
+on
+lH
+ey
+cy)
+ey ae ee
+remee be.
+er
+8.
+af
+bo?
+i he
+_—
+Me
+Se ag!
+a
+!
+4 fer
+a
+—
+a
+oe
+wads
+a} cf
+eo eee vt
+a
+ie |
+caf
+=
+ee
+J
+i
+a
+'
+a 7 a!
+oa
+er a
+4
+—
+2
+L
+£
+""
+eh P|
+ai
+re
+ate ile.
+""3 =
+AY
+a
+i ud
+| fe
+i
+ed
+2
+ha
+=
+pb
+iF Fr
+Le |
+Pe |
+soe
+-
+put
+fu
+we ow mie 5.
+=
+pee
+C
+Pat
+I
+——_
+———eere
+aoe
+se
+|
+LN
+| ""3
+qt
+2 i
+“-
+om.
+a
+|
+ae
+—
+I.
+——
+7 le we
+b=
+to
+or
+as
+ee aed 8? oe
+‘t
+| Vt
+wore
+- =
+eu*
+!
+i
+fo
+2.
+ae a
+er
+se
+ee
+ot
+é
+‘}
+==
+sal
+=
+eu
+the
+afer
+oA
+fy
+:
+af
+ee De
+i
+_
+fy
+‘i
+I
+=
+eee cee Se
+faa
+<
+2
+f. 5
+ot
+{> vr
+=< Ye
+td
+‘
+fr
+it
+Jade AG
+fe
+L
+Ve
+Pr
+rie
+f
+omen fi
+rower at
+a
+We
+‘cl
+~ a asa
+L
+ee
+!
+2
+Las
+‘
+ga
+b
+di
+MS
+A
+roe
+!
+L
+4!
+of
+re
+Il
+- f
+W
+5 a)
+—
+an
+=
+u
+;
+v i
+Ee
+f
+=
+’
+toe > Gi
+Rtg
+E
+st ae ini
+Ji
+|
+‘
+‘
+""
+= wa
+;
+F
+bj
+ra
+‘
+rad a Toren
+,
+cl
+cL. get
+i-
+mea eral
+Ay
+cy ee
+=
+e
+h
+Fe)
+n
+.
+-
+am
+ase
+i,
+gS,
+fi
+F
+| :
+a
+SS
+es
+b%,
+sto ot
+ie
+effce
+yy
+M)
+es
+|
+(omer ied
+mo |
+ln
+4
+?
+ee ci
+&
+‘oe
+ae
+Te t
+fis
+ff
+i
+rae
+-
+le
+:
+weet oe
+i
+»
+ay
+© hue
+to
+Ss
+a
+fig
+tty
+eA a B core
+;
+2)
+A
+a,
+&
+—
+&
+ves
+oi is
+we
+Vas
+=
+ia
+;
+a
+=
+f
+“Sy
+""yaa
+aa
+2
+Comme,
+‘l..
+3 k_
+n
+i,
+Fs]
+— 3]
+~ A
+Pa
+a
+fo]
+|?
+I
+ws ewe di
+a
+""y
+L=
+an
+ad
+\ ¢
+cam |
+®
+-
+[:
+ap te
+! } ne
+4
+:
+re be
+: Tad
+—>
+a
+rial
+aw
+a
+&
+j
+—""
+Le
+fy
+| f",34.62895174708819,34.0,0.8535773710482529,601,True,43.8974358974359,120.2,0.0,0.0,0.0,18,18
+page-1,samples/testing_pages/page-1.png,otsu,4,artifacts/ocr_profiles/page-1/otsu.png,"OS F — la _
+Ps ee De ETE
++5 : =~ eee |
+ft
+2 = FOR sek mer te
+at aif)
+¥,
+we!
+sine Nee
+ae he ‘ells hoi
+aae lai ro 2""
+' =
+he Ta ie See
+Pree",30.88095238095238,28.5,0.9047619047619048,42,True,3.2564102564102564,8.4,0.0,0.0,0.0,3,2
+page-1,samples/testing_pages/page-1.png,otsu,6,artifacts/ocr_profiles/page-1/otsu.png,"ar on ,
+_—| —-,-- ie geo
+_. ot | 2} . _ 2
+a sacs, a - i: ;
+ee BOO tie hic lCamily, quiets
+Po leen Yack. balen ok _scond ney
+WM Ted nad Las Calcot
+Me the gut of Nhe nucle",28.0,26.0,0.8636363636363636,44,True,4.128205128205129,8.8,0.0,0.0,0.0,5,5
+page-1,samples/testing_pages/page-1.png,otsu,11,artifacts/ocr_profiles/page-1/otsu.png,"—
+LD
+17t
+la
+a
+Cog
+— -
+Se
+gif
+ar
+el
+a a
+aE a at
+| he
+‘<a
+scard he senpec
+4)
+ft
+tac,
+'
+i
+Ca
+Lp_cord
+ae af al
+rte ff ee a
+Paver
+| el ee te
+ae
+fbONE TL ~
+frre
+-
+a
+ality
+*
+ea
+z
+oa
+we!
+Pe it ae
+Ee ey 2
+ees
+ae ie xb
+aw
+th ide
+a af
+hos
+i
+|
+ro
+in",28.573333333333334,23.0,0.8933333333333333,75,True,5.82051282051282,15.0,0.0,0.0,0.0,6,8
+page-1,samples/testing_pages/page-1.png,otsu,12,artifacts/ocr_profiles/page-1/otsu.png,"GITt
+Cog
+ity)
+ly
+Ji
+JAL 760
+sa Lafea cee
+1}
+‘<a
+card he scopes
+ft
+re]
+fuel,
+a ae ee a 2
+4 exes lof
+| el ee te
+ae
+POO te his lax
+tree
+ality
+*
+ar]
+De. EE
+Jin #
+;
+Pe
+Be:
+La
+oe bo
+ial
+a
+=
+;
+Fi
+|
+:
+7
+5 ‘
+ee
+7
+ll
+-~
+Be i
+I axBe
+|
+: Ty
+th ide
+a af
+""Pad
+yr
+|
+ae:
+rs
+in",33.5625,33.5,0.85,80,True,6.435897435897436,16.0,0.0,0.0,0.0,8,9
+page-1,samples/testing_pages/page-1.png,adaptive_line_removal,4,artifacts/ocr_profiles/page-1/adaptive_line_removal.png,"ged on IZ 7 eee eer le doa
+aa os
+7 - —s; a b 7 .
+ii \ i Ni o ;
+oe Pana
+eof epee ——- — ioe aa «fal bE oe ;
+- a ~P on we pore a _ . 0
+ar ae ee - J We LY: 2.00
+en re ae z ane) bud. dts ae 7 "">
+J ea \' 1m. e j . 3 °
+a —_aq in
+| fp ‘ i
+Perea ate _ thts! oh La SA .
+rer ~ 3 E | f
+| if = | zy wee
+4 ‘TT: + ae Se a = ’ ee ay °*; pal bead a
+ay Bho Aorr yt cleo eet ag il ea
+ie
+rn ' tha’ Somes jem ae a {et i ice wl! =. a= os. ca eo
+ig J a. - eT oa ""i "" fe i awAl iS mv rn To!
+v4,
+‘ e .
+tse et eee wm = 5 = I I
+My jf a ! tat i
+a : . i ~, a ‘
+Li ‘fie a Shee e. Jf co Se my oy
+r ms wy 3 a
+| ™ ° oe 7S vo 39 —
+t of ae fee ; ar fg ee ae. i ie ‘ ae na o 5 eee ae J en ed \ as
+oa : ; tee eos
+: wile “o> Fe A, OF a a Ee — a es
+, i ‘. i F . — ig e r E +}. “4 —_ ; eo ;
+A ‘Ve . ae ‘l f Ue rr Jk f 4 “Tt eA a “8. A Tt: : = & ae. i eye af 5 ~ net a
+wy - Lee Ged ao Lee i
+a |! . ‘
+i | Ee IOS ree é the}. as
+dhe. Sp EE la hed . act card \y aan
+ee Fy Us a e ¢ i £3 ad PS fgden chy ibe],
+we. ; . me bite cone ee ek . Goa Hod
+WA meee re ae ots 7 G é Poet 2 AL ai
+: . i 7 poo = og , 0 \. iy
+7 iE rg OA By A _ i ! a wo oe eer ar a £1, : ai fy = nts ba. i
+‘ } ~] ? | maze” | = if 1 i ; -_ i a am :
+wm gis oe as! wy ” ae ee oe any . a ar | + - & 1 &. ‘ ete 22 & -
+be mm at _f: rn a a eck soem be ca 7 (ea & fl Tr
+if . a a
+v4 c , a 3. jf . = =; ad 5 . an",29.43167028199566,28.0,0.8806941431670282,461,True,33.41025641025641,92.2,0.0,0.0,0.0,16,16
+page-1,samples/testing_pages/page-1.png,adaptive_line_removal,6,artifacts/ocr_profiles/page-1/adaptive_line_removal.png,"Pp ee OS 7, =
+i, © t SS : AY \ _. a cousins: 8 3 TO em mime SS “eee 7 F => . a
+|RSS ote bt al” bee,
+¢ | fi a | a uty ap ge age Pe am ’ oo j=. a og 27) | .
+‘ce=) : : - . - o eM ety a Om fa s ee” ae oe wll t c —
+| ee ee GEL tel A CoE i
+EE A —q S |
+iE , : . . ~| - : a! wm f
+CO 7IR te ST ere ae JOT,
+ey A ~ 7 Le = , a | , ; ;
+1, is Seibert fs ae if EI ef re
+. or Le See - a = ‘lo 7 . f . a , a
+i f io epi j Koa mela. |
+AF at, peg be gs J ie, ee Po! i
+le ay lies y-——CG EIR fo be :
+eg 7 i) oe ayy ar e ot es ) eo re
+| i | SEO. fbr | nef Coe Mei “eet @ ' eR
+og or ihe feel gad tages. Sesete ty =
+oe ee ee Ye. ah i'l i fo a | fete |
+. pth feed Peo Et 7 re er ne eed ee eee eee festa :
+: z a4 Pa ‘ ef fl .
+wee = f - - J 7 ° fe | ion a - “* i” a > “) PB . |
+| [ ‘ 3 iy i 7S vee sm ie j fa é LS ae? |
+fe a f ” . 7 a a ~ an ae) on.
+‘ OR . . ee 2 2. z mare A 35 ~~ | a é A a —_,
+. eee bt gherge 22 es Oe Lr )
+f = i c i } | = ; ; =",31.757009345794394,29.0,0.8660436137071651,321,True,23.025641025641026,64.2,0.0,0.0,0.0,14,14
+page-1,samples/testing_pages/page-1.png,adaptive_line_removal,11,artifacts/ocr_profiles/page-1/adaptive_line_removal.png,"—
+——_-~
+=
+Sar ant
+“a
+—
+7
+|
+I
+ee ee
+lex fe
+ace Oe
+I ~
+in -*
+(ssh IZ
+Decel
+{ =)
+a oes
+ner LS
+= ere =
+——_
+—
+———F)
+—
+A
+bo
+ope npr
+———
+—_—— -$ —.
+t
+on
+ve
+ct
+Fd | i
+it
+<
+=
+|
+mem
+=
+or 9
+as lp = Se,
+mA
+i!
+a | a
+--— =
+bod}
+a Zé °
+cs
+&
+a tf
+wil ae 5 si
+3
+i)
+""
+.
+ce
+aif
+a i
+measles? 2 seme,
+wu”
+I. =
+=<?
+Set he te Fk
+toe
+oma SF
+i o
+Lam)
+COR
+“ e ral i [a
+4
+a9
+‘a
+‘
+ov
+bem
+i ioe
+Poa]
+ty”, tits !
+a!
+be
+eens
+""a
+Peale
+mar eof
+2 Blt SOS
+fae
+— Fe
+oa
+2 |
+é
+OAL
+ae
+f
+TT.
+4
+My
+fs
+ii i!
+ee
+Gm on
+a
+peed eos
+# in Lr
+ao
+phe
+c=
+“at
+oot
+ts
+aur Gas d
+f Ta
+ah
+fi
+Le
+on
+lH
+hh jj
+a
+a ad wo 83 of
+ey ae ee
+remee be.
+ta oe | = 78
+Fi
+par] a
+a,
+Bae
+ee es
+f
+2,
+em
+ad
+—
+2 eat >,
+=i
+ey ae =,
+Sach
+ae hi ed
+by
+caf
+a
+(fee
+A
+3
+af
+i a
+tL ee ae oe ie, ae
+—
+t
+he
+e,
+ve
+fo.
+i?
+earl iy
+ai
+-
+ey
+—n
+if
+r
+ag
+2
+c
+24
+|
+Pade
+Cas wa
+_
+a a
+a L.
+ete
+soe
+Paar
+e a
+a ed
+ble
+aha ce
+2i|
+=
+peek
+or ar
+ay
+‘
+,
+———
+=
+ay
+L
+a
+4
+a va.
+r 3 Slee,
+=
+ae
+Die
+f
+=
+——
+ee ct ee
+ig Ver
+fue
+Cane
+Jif Seed? 3 see
+.
+“| a,
+oe ef
+Py
+_ a =
+er
+a |i
+6
+4
+AC
+- cami
+8
+!
+: i’. ee al
+fs
+v
+the fr ain “hi ig a
+Karnsily
+oe SL
+3 ge ee.
+|
+=
+fy
+Ate
+see cme
+a
+i
+ei (eo
+a
+ene 4
+o-
+f. 5
+oe
+bef
+eye af
+ob
+aos
+jJedee AG: :
+fe
+‘
+-
+i a e ¢ f
+mo me ee
+nr ed ma Pn
+""8
+c
+=
+=
+""|
+os ek
+i
+a
+ombes
+8
+¢
+di
+er
+f
+|
+{|
+t)
+,
+we
+gab
+iT
+e
+V
+re
+1
+Il
+wage
+Lip
+Ly
+u
+- ‘
+ee
+ad
+é al
+Wacom > lise os:
+—
+‘tse, fas ims
+Ji
+I
+a
+D
+be
+=
+\.
+bi
+i""
+ee
+I:
+fh.
+if Heats aa
+jgla
+al?
+oo
+Me
+""L ee]
+vil
+ie
+fe tA.
+om
+=!
+PI
+=""
+-
+fo
+a
+iy
+2
+I |
+£
+=
+-
+a)
+2
+n
+we
+due
+LF a
+]
+am
+ase
+j.
+hal
+fi
+on
+Revere
+ce 2
+a
+‘tee =
+-
+ee
+2
+fee
+i
+M)
+f
+I
+— fs
+one |
+|.
+ve
+__ fe ci
+dog? fife
+ff
+poet a
+fare
+weet oe
+i
+=
+i!
+»
+ay
+ee
+bie ee vie
+f
+Mets
+ea acez
+ar?
+oC —
+ow
+lea
+vr €
+&
+ves
+hea
+Sine a ee
+vie
+=, fl
+ait
+a
+i -
+f
+fi
+— te
+af
+=. S-
+ake
+A:
+‘L. 1
+n
+Fs]
+a
+he
+oe
+ws ewe di
+oe
+ed
+""y
+ll
+ad
+j fa
+cam |
+8
+is
+a
+y
+[:
+ror ype
+a
+q
+|
+y
+4
+i ad
+fees)
+re be
+= be
+a
+rial
+aw
+vou
+ae
+—""
+8 oe
+fy
+—
+_",36.52902155887231,35.0,0.8225538971807629,603,True,46.30769230769231,120.6,0.0,0.0,0.0,19,20
+page-1,samples/testing_pages/page-1.png,adaptive_line_removal,12,artifacts/ocr_profiles/page-1/adaptive_line_removal.png,"—
+ee
+—
+—_,
+=
+=~ 8
+[
+“a
+L
+174
+——_
+lead
+_:_
+q. ad tal
+=o =
+“|
+|
+a i
+——
+ao
+G
+wi.
+L
+rs
+at
+AC Ie
+Pe
+a
+al&
+|
+[
+Cs a
+<2
+an
+_.. fl
+=
+>
+sas
+—
+———— 2.
+—
+A
+ia
+we ee
+fp eo petra
+——-
+—_—— -$ —.
+t
+eo-8
+it
+4
+;
+ve
+ct
+Al
+it
+=
+=e
+or 9
+oo
+|:
+me
+i!
+_— - ete
+a | a
+I
+a
+an
+ae
+a
+:
+a an ae
+a a
+i
+ee
+.-
+i
+=>
+on an
+7)
+ae
+ee Lis?
+oe
+fo
+r
+£4
+Es
+a
+=
+tee are ae a
+Chet Roe
+om
+de OL
+Lam)
+ao
+F
+fe
+COtte¢
+i
+a9
+‘a
+a
+= bem
+esa
+q
+Poa]
+oe |
+an
+es
+fe be
+2
+a 1
+a
+_—= Ss =
+4
+|
+2 Blt SOS
+4
+ae
+ee Fe
+!
+Fe ot
+:
+3 |
+4
+é
+A
+cs
+f
+TT.
+4
+My
+‘
+fl
+|.
+Gm on
+peed eos
+|
+c=
+nos
+.
+A. ra “ii 6! 0
+af
+ie
+a. ee.
+~~ Seue_ Gas
+f fo)
+ele we TS
+ef ee oe ee
+ah
+fi
+Le
+on
+lH
+cy)
+ey ae ee
+remee be.
+ta oe | i ered]
+Fi
+af
+bo?
+i he
+_—
+Me
+Se ag!
+a
+!
+4 fer
+a
+—
+a
+oe
+wee oh
+a
+ae hi ed
+|
+ie |
+caf
+=
+ee
+J
+i
+a
+'
+a i a!
+oa
+er a
+4
+—
+ee
+L
+£
+""
+eh P|
+ai
+re
+ate ile.
+""3 =
+AY
+a
+i ud
+| fe
+i
+ed
+2
+ha
+=
+pb
+iF Fr
+Le |
+Pe |
+soe
+-
+put
+fu
+we ow mie 5.
+=
+pee
+C
+Pat
+I
+——_
+———eere
+aoe
+se
+|
+LN
+| ""3
+qt
+2 i
+“-
+om.
+a
+|
+ae
+—
+I.
+——
+7 le we
+b=
+to
+or
+as
+ee aed 8? oe
+‘t
+| Vt
+wore
+- =
+eu*
+!
+i
+fo
+2.
+ae a
+er
+se
+ee
+ot
+é
+‘}
+==
+sal
+=
+afer
+oA
+fy
+:
+af
+ee De
+i
+_
+fy
+‘i
+I
+=
+eee cee Se
+faa
+<
+2
+f. 5
+ot
+{> vr
+=< Ye
+td
+‘
+fr
+it
+lade AG
+fe
+L
+Ve
+Pr
+rie
+omen fi
+rower at
+a
+We
+‘cl
+~ a asa
+L
+ee
+!
+2
+Las
+‘
+ga
+b
+di
+MS
+A
+roe
+!
+L
+4!
+of
+re
+Il
+- f
+W
+5 a)
+—
+an
+=
+u
+;
+v i
+Ee
+f
+=
+’
+toe > Gi
+Rtg
+E
+st ae ini
+Ji
+|
+‘
+‘
+""
+= wa
+;
+F
+bj
+ra
+‘
+rad a Toren
+,
+cl
+cL. get
+i-
+mea eral
+Ay
+cy ee
+=
+e
+h
+Fe)
+n
+.
+-
+am
+ase
+i,
+gS,
+fi
+F
+| :
+a
+SS
+es
+b%,
+sto ot
+ie
+effce
+yy
+M)
+es
+|
+(omer ied
+mo |
+ln
+4
+?
+ee ci
+&
+‘oe
+ae
+Te t
+fis
+ff
+i
+rae
+-
+le
+:
+weet oe
+i
+»
+ay
+© hue
+to
+Ss
+a
+fig
+tty
+eA a B core
+;
+2)
+A
+a,
+&
+—
+&
+ves
+oi is
+we
+Vas
+=
+ia
+;
+a
+=
+f
+“Sy
+""yaa
+aa
+2
+Comme,
+‘l..
+3 k_
+n
+i,
+Fs]
+— 3]
+~ A
+Pa
+a
+fo]
+|?
+I
+ws ewe di
+a
+""y
+L=
+an
+ad
+\ ¢
+cam |
+®
+-
+[:
+ap te
+! } ne
+4
+:
+re be
+: Tad
+—>
+a
+rial
+aw
+a
+&
+j
+—""
+Le
+fy
+| f",34.81967213114754,34.0,0.8524590163934426,610,True,44.43589743589744,122.0,0.0,0.0,0.0,20,19
+page-2,samples/testing_pages/page-2.png,grayscale,4,artifacts/ocr_profiles/page-2/grayscale.png,"a rest
+_—
+—=",17.5,18.0,1.0,4,True,0.9743589743589743,1.0,0.0,0.00897435897435898,0.0,3,3
+page-2,samples/testing_pages/page-2.png,grayscale,6,artifacts/ocr_profiles/page-2/grayscale.png,"Peete bas die
+a Oe re
+ik, Te Rar bow * — debe. — ow te... debe
+=a
+cel ed",39.5,38.5,0.85,20,True,1.7179487179487178,4.0,0.0,0.0,0.0,5,4
+page-2,samples/testing_pages/page-2.png,grayscale,11,artifacts/ocr_profiles/page-2/grayscale.png,"—
+Tn the Fi
+0a
+ie
+fp become bus detic
+=
+bene Ge
+hs Jo karn J
+bo
+er ai
+EE a
+iL hae fo a
+a ME
+CY
+J
+0. die! j
+eS ail ™ a
+ey
+—_— =
+ail A
+4a
+;
+—s
+—=
+——_———
+=
+—
+=)
+a PAY fy
+ha
+wit oa
+AS of
+ma
+cf
+Cit
+sh
+===
+————
+— SS
+neal
+ee
+——",33.72463768115942,34.0,0.8405797101449275,69,True,5.358974358974359,13.8,0.0,0.0,0.0,9,7
+page-2,samples/testing_pages/page-2.png,grayscale,12,artifacts/ocr_profiles/page-2/grayscale.png,"—
+Tn the Fi
+0a
+ie
+fp become bus detic
+=
+bene Ge
+hs Jo karn J
+i]
+er ai
+EE a
+iL hae fo a
+a ME
+CY
+J
+ey es
+die Eh gring
+or VY Py
+|
+=
+hia 2S
+ra Sa
+Vi
+a
+adthi|
+rE,
+eee!
+—
+i
+Sh
+ih a.) /
+2? Ao
+wit oa
+e AS ou
+eas
+Cit
+sh
+3
+=
+= i
+. lll
+—
+-——",32.35616438356164,30.0,0.8767123287671232,73,True,5.589743589743589,14.6,0.0,0.0,0.0,11,10
+page-2,samples/testing_pages/page-2.png,clahe_median_adaptive,4,artifacts/ocr_profiles/page-2/clahe_median_adaptive.png,.- —_— = ———,29.75,12.5,0.75,4,True,0.9230769230769231,1.0,0.0,0.026923076923076904,0.0,1,1
+page-2,samples/testing_pages/page-2.png,clahe_median_adaptive,6,artifacts/ocr_profiles/page-2/clahe_median_adaptive.png,"Thy the Buave J Mae 1
+- i seas “ me Woe Ty j i
+Th hen a bes die |
+_ ‘Thevantge [lat IE lg he eo '
+- i hte: fe Meet hal BO ee: Ie
+ame i8 Pale fo tale: @ site —
+fen Baral gail. —
+—t hen BG aig, Eee. 7 figiz.—
+<7 7 At is ra Ae at ee = S. fi — fess = Se Ire NS,
+ye Ae. ota nf EL tthe oe i ae Hq } eis
+ac ig a ie
+|",31.47252747252747,32.0,0.9120879120879121,91,True,7.589743589743589,18.2,0.0,0.0,0.0,13,6
+page-2,samples/testing_pages/page-2.png,clahe_median_adaptive,11,artifacts/ocr_profiles/page-2/clahe_median_adaptive.png,"-
+!
+I
+Fe oi
+|
+i
+je
+aa
+Mf
+El
+\3
+i
+j
+i
+at,
+af
+furs
+BE
+as
+ind f
+f
+-
+we Wa
+i a
+eee)
+ae
+:
+|
+=e
+Nt
+i
+iy
+“itl
+Abe
+|
+fu
+hi
+i
+heal
+a
+ties
+Pr |
+te eo ‘
+rf
+ae
+Nags |
+{
+Pile
+a
+ahs
+z
+be
+ae
+II
+(ay aes
+——
+1
+| I |
+ih t
+egal
+fl
+&
+Cal a
+sie JG
+a
+ore
+a)
+ae
+ia Pio
+Of es
+!
+Hy
+a
+-
+os -
+— SH
+ij
+(at
+Lhe
+rl
+I's,
+FO a
+i.e,
+is
+j=
+ee
+al
+if
+inte
+LS
+et)
+ey eee
+antl
+a
+a
+in
+—
+[v2
+{ i
+el
+Poa
+[ae fet
+(30
+Me
+——a
+-
+—=—$—
+ea
+(
+pol
+itd
+=.
+fi
+| |
+‘=
+ee
+ae
+:
+MP Ae ae
+cA
+ee
+—
+— es
+————————""
+——__ =
+—_——_-
+ —_
+—",35.2,32.0,0.8258064516129032,155,True,11.820512820512821,31.0,0.0,0.0,0.0,16,13
+page-2,samples/testing_pages/page-2.png,clahe_median_adaptive,12,artifacts/ocr_profiles/page-2/clahe_median_adaptive.png,"!
+Fe oi
+Hl
+gale
+je
+ae
+ames,
+Mf
+El
+\3
+i
+——
+i
+il
+af
+furs
+|
+f
+BE
+as
+f
+______.
+|
+i
+we ify
+|
+1a
+:
+i
+io
+dé
+Abe
+|
+fu
+hi
+i
+eat
+—_ =
+—
+a
+ties
+Pr |
+te eo ‘
+rf
+ae
+{
+“hel
+>
+z
+i
+ae
+II
+(ay aes
+=
+1
+fi
+| I |
+ih
+a
+&
+Cal a
+Lie if
+iS
+ae
+ve
+vate]
+ie
+Of es
+!
+by
+ae
+ij
+I's,
+Fs ob aol
+i;
+is
+ee
+al
+if
+inte
+f
+LS
+—
+f
+et)
+ey eee
+éai |
+a
+4
+;
+i
+any
+a
+:
+4
+=
+a
+:
+Sa
+(
+feat
+(ie.
+=.
+fi
+bil
+——}+=—
+(i
+a.
+ee
+>""
+Z
+Pe
+APE
+cA
+ee
+—
+—
+— es
+————————""
+——__ =
+—",36.697841726618705,35.0,0.8201438848920863,139,True,10.435897435897436,27.8,0.0,0.0,0.0,15,12
+page-2,samples/testing_pages/page-2.png,median_adaptive_no_clahe,4,artifacts/ocr_profiles/page-2/median_adaptive_no_clahe.png,"i 50. ai a, _ ___ th
+—— a>
+tp 4S TE
+_ a ”
+__i¢ zy “4, 1
+[
+—
+Wea
+ae
+fe ge
+—
+BA
+aoe A ee if
+qk th Bie. ytd
+iE
+ell
+ee ee
+Wie
+yet Me.",29.785714285714285,28.5,0.9285714285714286,42,True,3.128205128205128,8.4,0.0,0.0,0.0,7,15
+page-2,samples/testing_pages/page-2.png,median_adaptive_no_clahe,6,artifacts/ocr_profiles/page-2/median_adaptive_no_clahe.png,"ye op iy eta ee |
+Fes Io tet pi \yealt TO. dite,
+_; (ADL VR Fee ete eee
+OL eee AGA GL he ieee
+OE one 4 fea a Te SU",31.1875,30.0,0.9375,32,True,2.641025641025641,6.4,0.0,0.0,0.0,6,11
+page-2,samples/testing_pages/page-2.png,median_adaptive_no_clahe,11,artifacts/ocr_profiles/page-2/median_adaptive_no_clahe.png,"—_____,
+[
+=--§—— ee
+—
+}
+_ at
+Wii
+al fa i he fei PE
+—
+PP
+Soe pp
+Ay
+ea fay qT)
+fie
+Tatts
+el, |
+—
+Se
+-—
+aos
+Se _
+[
+—
+ae
+hot We
+— -
+—_
+fe ge
+—————
+———.
+= =
+rien
+MF on gh La,
+>.”
+ee
+_—___—""
+oo
+|
+Lev
+dit ye
+tr
+lin ce cyl
+— —
+a teem
+_—_—_—_—_—_—_—
+ciel |
+aie “6
+——
+eee
+aa oe
+Van
+fo
+“Lert
+if
+ee
+{i
+fA
+ce
+ahs
+—_—$——
+ft ly
+fi
+—_—
+50.
+Mex
+_
+tr
+—
+on nf A. Bie. f
+ee _—
+————_—
+——__
+a ee | “=
+ee
+A et by:
+et ae
+oA
+—————
+i.
+ae bt Togs
+__ al i fl
+Gh iy
+a
+ie
+—!
+BA
+A Se
+—_—__- o--
+ee ee
+ee
+Tt
+|
+ee
+_ ae
+oe
+he fear’
+Ne. M i
+—— >
+ue
+ad
+ee ane
+——
+——
+ry
+— re oe
+fi oF
+ej
+oa @
+ine ' A jp
+Co
+VS
+it
+md i.
+es <_-
+—— er
+TF
+_ ee
+* Ct)
+oe —
+be
+——! +P
+f°
+f
+we ae
+.
+on a
+Ye
+a
+Tee
+—
+wat
+FS
+e =
+= __—
+—— ___
+ee,
+ne |
+(i to#4
+1
+<<
+Qe om
+“Eee
+es
+—=-)S—_ =.
+erm
+——
+—
+a
+an
+=
+— —_=",30.104803493449783,30.0,0.9170305676855895,229,True,18.58974358974359,45.8,0.0,0.0,0.0,19,17
+page-2,samples/testing_pages/page-2.png,median_adaptive_no_clahe,12,artifacts/ocr_profiles/page-2/median_adaptive_no_clahe.png,"—_____,
+[
+————
+—s
+_
+5
+aien “é th ‘af ye ©
+“
+Pye
+—$———
+m
+Soe pp
+SSS
+gee
+ek
+his eile
+o
+Se
+—
+—
+eae
+ji
+me
+— 5
+———.
+= =
+rien
+MF on gh La,
+>
+eet
+— a2.
+oo
+== 3
+sah
+Le
+lie I
+Ma
+ms
+eer
+ard
+a teem
+wo.
+ge
+aie “6
+—
+veal
+”
+Vie
+fo
+of
+me rade r
+ee
+{i
+fA
+ce
+ahs
+é—r
+—_————
+EL
+a a
+f F A
+e/a
+BS
+a
+ie
+Se
+5 ol ia
+lt.
+>
+_
+tr
+—S
+——
+a>
+a?
+c
+yl
+iret
+fos
+ie
+—————
+ra a. ‘L. Togeye
+ti cn
+al
+i ae ee ee
+i
+|
+=——— Ee
+ss
+es
+——eee
+ee
+=
+|
+ae
+ved
+|
+&
+pail
+i
+|
+a""
+—— >
+I,
+F*
+ii ‘|
+pore
+em
+fi
+—
+ae,
+——<—S$ ¥sX—Xv—rr—->—-
+f
+— re oe
+_ a
+fi oF
+— e
+ce
+;
+_
+i
+'
+Cite.
+VS
+if?
+hoe
+—— er
+i
+i
+_ ee
+* Ct)
+os —
+‘
+f
+4?
+fy
+[fe
+ry
+f
+f
+th,
+a) 5 — ee ee,
+A
+it by
+T,
+:
+i
+j
+wr!
+—
+wat
+—— ___
+_
+-
+Fn oar |
+Qe om
+i
+=
+——
+—
+a",31.44392523364486,32.0,0.8878504672897196,214,True,16.71794871794872,42.8,0.0,0.0,0.0,18,18
+page-2,samples/testing_pages/page-2.png,otsu,4,artifacts/ocr_profiles/page-2/otsu.png,"=~ ee bert
+——
+—",53.8,55.0,0.6,5,True,0.9487179487179487,1.0,0.0,0.01794871794871796,0.0,2,2
+page-2,samples/testing_pages/page-2.png,otsu,6,artifacts/ocr_profiles/page-2/otsu.png,"“tke a bus dele
+—\eeege Waa te
+ib. Te Bart bow 2 debe gid 20. debe
+‘a
+STi",32.22222222222222,30.0,0.8888888888888888,18,True,1.7179487179487178,3.6,0.0,0.0,0.0,4,5
+page-2,samples/testing_pages/page-2.png,otsu,11,artifacts/ocr_profiles/page-2/otsu.png,"——
+iy he PM
+ne
+_ yiae
+Ep beet. a bes dete
+am
+et ee
+it. Je Earn |
+Le
+tial
+ive
+L hae to tal
+ie ad
+| ¥
+é
+paindtia Lt ev j
+ak aie Pe ao
+Ph
+a
+i alc a
+ais
+?
+=.
+—
+—_— =
+—
+—
+=
+a sri! led
+“By
+aati oa
+Ay &
+eG!
+ir
+a
+rey
+yg ee
+SI
+a a
+OL
+-
+—",37.06849315068493,35.0,0.821917808219178,73,True,5.564102564102564,14.6,0.0,0.0,0.0,10,8
+page-2,samples/testing_pages/page-2.png,otsu,12,artifacts/ocr_profiles/page-2/otsu.png,"——
+iy he PM
+ne
+_ yiae
+Ep beet. a bes dete
+am
+et ee
+it. Je Earn |
+be
+tial
+ive
+L hae to tal
+ie ad
+| ¥
+é
+wt or.
+die ci. orig
+i La ia
+}
+7
+fiw =
+rT aa Tal
+fa
+a
+arctdait
+a!
+ee
+—
+|
+iy
+Th i i;
+A? AO
+aati oa
+ie: AS ei
+TO!
+a
+rey
+i 4.
+a=
+. #
+ee
+—_—_
+a",34.46666666666667,33.0,0.8533333333333334,75,True,5.846153846153846,15.0,0.0,0.0,0.0,12,9
+page-2,samples/testing_pages/page-2.png,adaptive_line_removal,4,artifacts/ocr_profiles/page-2/adaptive_line_removal.png,"ty yg he eat ute
+i ee
+ee ws
+cos
+Tv
+__¢ li “4, 1
+|
+i
+oot A ee ie He
+Vie
+ae
+te ge
+A
+en
+ee ee 7
+yiee 27
+= “f “
+1 o& . tye fo ie Be",28.069767441860463,26.0,0.9534883720930233,43,True,3.076923076923077,8.6,0.0,0.0,0.0,8,16
+page-2,samples/testing_pages/page-2.png,adaptive_line_removal,6,artifacts/ocr_profiles/page-2/adaptive_line_removal.png,"|
+—}-—-— Papp ote be
+~thaveebge PE ee
+(ip, fio eet et aly Ee
+ane hea 1 Cane 2 beth oh Ee Ai -
+: et al re ree ee er ee rc |
+— Al Che a cle _ al. _ —_—, pale [_——= i 2 ca ee
+(oe PREY eee” a et [ie —__——
+y | I Sel i Che ic} rye on poe. ——
+a get op a a i i i ; Hi wage == f | fe 7 chen NE
+ey bao wk y ae pf eS ee at — te
+got A i iT r ‘ | ff ra _ oe ne -
+=— ee ee rin deed woe a
+ite",28.632478632478634,29.0,0.9230769230769231,117,True,9.307692307692308,23.4,0.0,0.0,0.0,14,14
+page-2,samples/testing_pages/page-2.png,adaptive_line_removal,11,artifacts/ocr_profiles/page-2/adaptive_line_removal.png,"—_____,
+—
+———__
+)
+=--§—— ee
+—
+}
+<I
+Wii
+al fa i he fei PE
+—
+PP
+Soe pp
+Ay
+ea fay qT)
+fie
+Tatts
+el, |
+—
+Se
+-—
+aos
+Se _
+[
+—
+ae
+hot We
+— -
+—_
+fe ge
+—————
+———.
+= =
+rien
+MF on gh La,
+>”
+ee
+_—___—""
+oo
+|
+Lev
+dit ye
+tr
+lin ce cyl
+— —
+a teem
+_—_—_—_—_—_—_—
+ciel |
+aie “6
+——
+eee
+aa oe
+Van
+td
+“Lert
+if
+ee
+{i
+fA
+ce
+ahs
+—_—$——
+eon
+—_—,
+ft ly
+fi
+—_—
+50.
+2 tie
+_
+ff
+tr
+—
+on nf A. Bie. f
+ee _—
+————_—
+——__
+a ee | “=
+ee
+A et by:
+et ae
+oA
+—————
+i.
+ae bt Togs
+__ al i fl
+Gh iy
+a
+ie
+—!
+BA
+A Se
+—_—__- o--
+ee ee
+ee
+Tt
+|
+ee
+_ ae
+oe
+he fear’
+Ne. M i
+—— >
+ue
+ad
+ee ane
+——
+——
+ry
+— re oe
+fi oF
+ej
+oa @
+ine ' A jp
+Co
+VS
+it
+md i.
+es <_-
+—— er
+TF
+_ ee
+* Ct)
+oe —
+be
+——! +P
+f°
+f
+we ae
+.
+on a
+Ye
+a
+Tee
+—
+wat
+e =
+= __—
+—— ___
+ee,
+ne |
+(i to#4
+1
+<<
+Qe om
+“Eee
+es
+—=-)S—_ =.
+erm
+——
+—
+a
+an
+=
+— —_=",30.261802575107296,30.0,0.9184549356223176,233,True,19.025641025641026,46.6,0.0,0.0,0.0,20,20
+page-2,samples/testing_pages/page-2.png,adaptive_line_removal,12,artifacts/ocr_profiles/page-2/adaptive_line_removal.png,"—_____,
+—
+5
+aien “é th ‘af Ta ia
+“
+Pye
+|
+m
+Soe pp
+SSS
+gee
+ek
+his eile
+o
+Se
+—
+—
+eae
+i
+ji
+me te
+———.
+= =
+rien
+MF on gh La,
+>
+eet
+— a2.
+oo
+== 3
+sah
+Le
+lie I
+Ma
+ms
+eer
+ard
+a teem
+wo.
+ge
+aie “6
+—
+veal
+”
+Vie
+td
+of
+Dl Adie
+ee
+{i
+fA
+ce
+ahs
+é—r
+> ——
+eon
+EL
+a a
+f F A
+e/a
+BS
+a
+ie
+ae =
+i [lee
+aad dat =
+Le
+‘
+tr
+—S
+——
+a>
+a?
+c
+yl
+iret
+fos
+ie
+—————
+ra PA. ‘L. Togeye
+ti cn
+al
+i ae ee ee
+i
+|
+=——— Ee
+ss
+es
+——eee
+ee
+=
+|
+ae
+ved
+|
+&
+pail
+i
+|
+a""
+—— >
+I,
+F*
+ii ‘|
+pore
+em
+fi
+—
+ae,
+——<—S$ ¥sX—Xv—rr—->—-
+f
+— re oe
+_ a
+fi oF
+— e
+ce
+;
+_
+i
+'
+Cite.
+VS
+if?
+hoe
+—— er
+i
+i
+_ ee
+* Ct)
+os —
+‘
+f
+4?
+fy
+[fe
+ry
+f
+f
+th,
+a) 5 — ee ee,
+A
+it by
+T,
+:
+i
+j
+wr!
+—
+wat
+—— ___
+_
+-
+Fn oar |
+Qe om
+i
+=
+——
+—
+a",31.766355140186917,32.0,0.8878504672897196,214,True,16.615384615384617,42.8,0.0,0.0,0.0,17,19
+page-3,samples/testing_pages/page-3.png,grayscale,4,artifacts/ocr_profiles/page-3/grayscale.png,"Disard eae
+CBS ly Tete
+pe} Line eens ato perio ee
+_— | Lh ELA adeo. OCI OO Shddew
+ey ee
+: 2 Se GR r ae ee 22
+WS l Or e OU
+———— de aHiag GC) bfee a6 . i
+J ladeg Sia wel a? oH wp early
+, =a lac aot you Siad Ja CO _| Jyears ate
+7 af is amily Gweate
+ie to, s cep aa Ae got Scat od. )
+a oof Wik 2 biel ar.
+a L b alk we wl0.s Clakching
+rt Your Ty eck. Lhe ci
+Pt ) bata iT Phe basen. the )oure.
+a / Ss, PLE (! j ‘-
+[aq ea 6-4 le i is 4) Weil UZ.
+bs E we HL, wala ee le ace E va
+hs T ag a ate éi
+_— bomp amet
+a} ently Phe tT RE a Pee
+Lhe",32.60958904109589,31.0,0.8493150684931506,146,True,13.128205128205128,29.2,0.0,0.0,0.0,9,3
+page-3,samples/testing_pages/page-3.png,grayscale,6,artifacts/ocr_profiles/page-3/grayscale.png,"Str lade
+x a Dao a con!
+7 ib | ther | Le | | Lasicc, woe Uf #
++ | GE Oia 20 alt EG —
+— thea ‘bales Sat y COUTTS
+, ——| he gt Garr! i 3 “ ddoc a
+N° Soa taAHia Ge apt A i ope Le YOu sy
+Ss -_ Lael a vf fea al te early jae!
+SiN pies a well) cube bist
+i to__ Sleep leet Ses Bee ae
+= fp get Be yes Paes gee ge scard ye
+TG a EO
+| J Lh et Deg: hh eke Va te wore ufZ :
+J bed Hea pe gat fhe
+im wreaemmeary tladee e Cl ‘i
+_ Sa eran Fao told his",31.908333333333335,29.0,0.85,120,True,10.64102564102564,24.0,0.0,0.0,0.0,6,4
+page-3,samples/testing_pages/page-3.png,grayscale,11,artifacts/ocr_profiles/page-3/grayscale.png,"om
+Digdi74
+iClolss 55/2
+BES Cher fe 207, /
+;
+%
+Lr fi OUam
+ee
+ES OUEG ee
+y
+CC)
+Pa
+—
+GOC 1) ]
+Lage ae EE
+thea
+Veale nr
+OCS
+aN
+A
+YA CLO Ce
+&
+gt
+SCAG
+at is Bi aad AA
+4,
+A
+Lh, CoA
+ne me
+pS Ste
+——
+| dis
+ee
+Ryiet dd,
+Or fr
+dicta mag)
+© gree
+PT
+early —
+ladeo
+Sig cell je
+coe (PRO, early,
+a
+(aye)
+wore Cad Jadco
+OLS lay
+alt CYVOS
+es
+Se
+acl
+baba
+FAY Eep
+U
+adeO Gots Scab g
+c
+oof
+Ke
+ey ai Ne!
+OA)
+eee an
+out ol
+the CAL Lt
+‘Laas meee
+|
+OLE
+Pe
+Fish
+jee
+CA or
+EE
+YA COM eS (7
+PE
+pee
+bere srlf antlhe
+Mes
+ee
+Cte Fi
+CLeo
+te de.
+cL ship
+‘at |
+:
+oe
+ae ae
+_of ol
+te
+i
+oc4p
+(TD Te 8 TANS
+old
+( a
+e|
+Cane
+Ly
+vay same Go Te ae
+the
+&
+Jy,",35.36144578313253,35.0,0.7831325301204819,166,True,15.179487179487179,33.2,0.0,0.0,0.0,16,7
+page-3,samples/testing_pages/page-3.png,grayscale,12,artifacts/ocr_profiles/page-3/grayscale.png,"om
+Digdi74
+iClolss 55/2
+BES Cher fe 207, /
+%
+Lr fi OVan
+Lackeo
+ES OUEG ee
+y
+CC)
+GOC 1) ]
+LO
+malle Blow:
+thea
+alec
+KC
+aN
+A
+YA CLO Ce
+oem
+SCAG
+at is Bi aad AA
+4,
+yes
+bore
+ne me
+pS Ste
+——
+| dis
+Sytter
+Ryiet dd,
+Or fr
+dt QQ LAD)
+© gree
+“ip be
+early —
+=
+ladeo
+Sig cell je
+coe (PRO, early,
+——— lac
+(aye)
+wore co ie Be SJXiQgeo
+OLS lay
+alt CYVOS
+es
+Se
+acl
+baba
+ae
+ko
+s Eep
+U
+adeO Gots Scab g
+c
+|
+ey
+_go}
+Ke
+Ch
+OA)
+—yooky [z
+ra
+out ol
+the CAL Lt
+br igh
+them enoe—
+|
+OLE
+Bei
+rol
+jee
+CA or
+YA COM eS (7
+phe
+bere srlf antlhe
+hey
+eae
+Cte Fi
+CLeo
+—
+te ee fe
+iD PL ae
+cL ship
+0” Te a oe
+:
+ae.
+a Cie a
+ok a
+te
+oc4p
+(TD Te 8 TANS
+old
+( a
+[FT A A AE SNE crus ee
+Cane
+Ly
+vay same Go Te ae
+the
+&
+Jy,",35.81318681318681,33.5,0.7637362637362637,182,True,16.923076923076923,36.4,0.0,0.0,0.0,18,10
+page-3,samples/testing_pages/page-3.png,clahe_median_adaptive,4,artifacts/ocr_profiles/page-3/clahe_median_adaptive.png,"wu Vit
+e eyiailell
+Lhe ae oul
+. ; ee
+uf",35.54545454545455,37.0,0.9090909090909091,11,True,0.9743589743589743,2.2,0.0,0.00897435897435898,0.0,1,1
+page-3,samples/testing_pages/page-3.png,clahe_median_adaptive,6,artifacts/ocr_profiles/page-3/clahe_median_adaptive.png,"Se aed cl I gollega baly
+a [f- ——|agd—aak ppg seadh Tacslee [7 Vaart bape
+se TF coos 400 Phe his amily sbate |
+ufo dt ro Shep auf Tada gel setd hae
+mee “vookube the out 0€ the iladbdy|
+fe he thece seclé dak the |
+| bemp _ladeo [aa fo d. oS ‘",26.418181818181818,30.0,0.9636363636363636,55,True,5.9743589743589745,11.0,0.0,0.0,0.0,2,6
+page-3,samples/testing_pages/page-3.png,clahe_median_adaptive,11,artifacts/ocr_profiles/page-3/clahe_median_adaptive.png,"(GT
+— —
+=
+is
+(74
+lade
+alokeo!
+Jecélgec
+“265!
+p——~é
+¥
+nF
+Lo
+‘O0am
+AACE
+CeO
+CCC}
+CACM A!
+M0 Ly -_celfce |”
+Far 0
+CLO)
+SACI
+PACLO Cz?
+QO)
+Or
+AAA!
+)
+7) 3
+fr} cA-
+sosister is
+Lf
+(é
+OY
+|
+OO
+\-
+ling — ep
+-————
+{
+Af) 1 €
+SAN
+And bot_
+|
+yee clad Jadeo [3
+(Ei DE
+|—
+TO
+Slee
+LED
+—
+sAN
+OO
+OA
+UZA
+u Vt
+VW
+our
+LOT)
+iki)
+th
+Ola latheds!|
+LG,
+bape be) OLE. e
+2
+ES Tene
+petals _
+—___ | CO
+""
+s | tte
+de
+CLO SR ce ae
+boap_.
+ck deo faa Fold his S|
+“f
+/———— Cai
+-—
+L
+heen
+an rk Aaa
+a
+/
+|",35.60162601626016,35.0,0.7967479674796748,123,True,11.461538461538462,24.6,0.0,0.0,0.0,7,13
+page-3,samples/testing_pages/page-3.png,clahe_median_adaptive,12,artifacts/ocr_profiles/page-3/clahe_median_adaptive.png,"(GT
+=
+is
+Fj
+(74
+lade
+alokeo!
+Jecélgec
+LOL,
+nF
+‘OD
+AACE
+CeO
+CACM A!
+CY)
+Ye colt
+ce
+ee
+|
+VEL
+SACI
+YVCATLO
+QO)
+)
+7) 3
+t
+A]
+c4-
+|
+Lf
+(é
+OY
+OO
+\-
+ling — ep
+|
+NSs
+a
+Af) 1 €
+SAN
+Sia
+—
+dot ane clad Jado [3
+|—
+TO
+Slee
+LED
+|
+OO
+OA
+u Vt
+VW
+.
+our
+:
+LOT)
+iki)
+th
+Vout latheds!|
+LG,
+bagee OLE. e
+2
+ES Tene
+petals _
+s | tte
+de
+BP
+a
+boap_.
+ear
+5
+/-——
+Cant
+-—
+L
+heen
+an rk Aaa
+a
+/
+|",36.05940594059406,36.0,0.7722772277227723,101,True,8.846153846153847,20.2,0.0,0.0,0.0,4,12
+page-3,samples/testing_pages/page-3.png,median_adaptive_no_clahe,4,artifacts/ocr_profiles/page-3/median_adaptive_no_clahe.png,"— _(Piete79 laude
+= baci s——Taeee ls 2a,
+~ IAL 7 am Tle Sigh ep ——
+co__) _c
+: +. ee _—_ SOW a shkel: [Oc
+. 7 ry jee laden — etl —
+| as Wi shee
+- bis sishen 3 cad coh arc YOU
+fe feat lag “PE ently
+~ ~ Jae jSeo_Si GE cwel| Pia 10 earl
+laad__ook_ DO Sad {tadco |3 OMS. M2
+eas B20 O e his aml esate
+2___ SEG but fe lode gon lad
++f ——____|_¢ ae ad Gad Wlousz. Gwla Eeliing
+~jpi-—__| nants ‘otic tee € Lh Cv ttachoa:
+| fpthep—bas a —_kh. _ouse._
+a ae ald - tA CLOns Uy cuahs up. _—_
++— | dher Be Deg hae tee tak the
+Poor -d thea! Coole = OZ ‘eat $i
+Oe (aes [fo was ash LD
+ar if 7
+oes ee ae TS -
+eS 6.00 yt lade. Of OA_ _ tol ld fb! So
+TN bam \ i
+noe ges aek eck ca ome",32.21951219512195,30.0,0.8536585365853658,164,True,16.53846153846154,32.8,0.0,0.0,0.0,14,15
+page-3,samples/testing_pages/page-3.png,median_adaptive_no_clahe,6,artifacts/ocr_profiles/page-3/median_adaptive_no_clahe.png,"Tf At 700am_lacdkeo walle upp
+hen Vie dnend be analte collce
+P| hea Jacko sow a shdelows _
+se , egok_scard he seryed_A LALA
+SN devaing_cobbee, JE fe early
+a aad—_aot_ yo Sal Teele 17 Facets bape
+af 1 co0s_ 8/00 Lhe his acaily cJeata.—
+fy to Sleep but Tadeo gok_scard le.
+wh of Va “Pre A foal \tiereelstn a
+Lp GOL WO. Cae iag.
+— a Svoukube the out 6€ the ciadoar
+ee on’ ly Thea his Cacrilly woheup.
+oo _bhes 7 d__the re sclfé tak lhe
+eS peomp—fadeo—raa told hls >",28.27956989247312,28.0,0.8924731182795699,93,True,11.487179487179487,18.6,0.0,0.0,0.0,3,11
+page-3,samples/testing_pages/page-3.png,median_adaptive_no_clahe,11,artifacts/ocr_profiles/page-3/median_adaptive_no_clahe.png,"ae
+ATI
+dade.
+git a Deceber
+[a2
+Y
+woe up
+At” Tan Tagen
+ca___he
+ima wee. eo
+The son a chal
+2 gah scar
+coud ABA
+T.
+x Sher
+a ad Wd coh
+Orc YO
+w)
+ae
+featieg
+“PE
+early
+Dax Seo _S1a
+Pee
+cwel| Po) ey
+102d
+4.00 —_ NOT YOU vad Jadco | 3 OMS Wer
+| jh eves a0
+eis acALh esate
+9S ep — by uk le lode got _Scar¢
+lye pad —
+was! jg Lelaing..
+|
+= The ovl oe
+hone log:
+igh hep bas ag__kh. a _ pause
+de ra |
+CAL
+Ca.
+ont b t1olee Uf. _
+fe
+CA, __
+coe
+? Dee osele_ pak lhe
+——
+—___|_ “42.
+fe
+= OLE AT
+—_-
+| a
+OUTS
+ob shsp
+“Bod
+CEL.
+nner
+a oo “OM Ode
+Cc a Oo faa. Fol ld
+_—
+Bes
+a
+—_ bam if
+the en
+|",33.38513513513514,35.0,0.8648648648648649,148,True,14.256410256410257,29.6,0.0,0.0,0.0,10,17
+page-3,samples/testing_pages/page-3.png,median_adaptive_no_clahe,12,artifacts/ocr_profiles/page-3/median_adaptive_no_clahe.png,"—
+ATI
+lade.
+cee SL Jecebete
+[ELE »
+Y
+“CuO by
+~ |AtL- Tas Tare
+ca__he
+éaeat Hasfe—analte—«
+CC: ole Ce
+adeo sows a Shdtel-
+he gah _scar
+coud ABA
+T.
+x Sher
+_
+a ad Wd coh
+Orc YO
+w)
+featieg
+op ;
+early
+Dax Seo_S1a.
+Pee
+cwel| Po) ey
+‘0G
+4.00 —__ 20
+VOU vad dadco |3 LOLS life
+TE as 80
+ears tanh esate
+OS ep — by ut _[e lode got_scar¢
+0+ te tad
+C/E. ig. | ctgcliing..
+“TT
+oo
+ky som = Le puto
+a AC (edt Mogi
+ap high
+iprhcp—bae a LT fraQ.Le. C..—
+— _é ol a
+CAL
+Ca.
+ons cua up. _
+——
+.
+| bn ae
+ra
+? Dee osele_ pak lhe.
+——
+eet
+es ee
+(nan
+J
+fe
+= OLE AT
+—_-
+——__
+~~
+| ” eee OY me
+Ch 1D
+eT
+_ CL
+oY
+ne “OM ote
+ate a Oo faa. bol Lf
+ia
+—_ bam f—
+the en
+=
+Leet
+)",33.61963190184049,33.0,0.8650306748466258,163,True,15.974358974358974,32.6,0.0,0.0,0.0,13,18
+page-3,samples/testing_pages/page-3.png,otsu,4,artifacts/ocr_profiles/page-3/otsu.png,"PSt7d lade e
+Class 5 35/2. _ Dee le oe
+2O be coen ""fo coe colkee
+— : +h EO jade o BUH OK ShAdetwe
+= OR, mse he spied GAA
+inte eee s a ae Jie sister
+a f Orc OU
+_——— de ahiag CO flee “9 L. ‘arly
+7 Jadeo Sra wel ae OK eLp ecurly
+_ an nor you Siad Ja CO | \yours fe
+; Lo asuly quéab.
+~ Ng fo, s cep UL doo aot scary ~/ hy
+pS _gof Vie | ef an
+at L b ons aN was Catching
+rl Your” V4 oot ck the cunche,
+rt | rar Mm Hep baam the house -
+_ / >i ae ! (, | -
+BE lhet E. Lh , fear Of -
+hd H be! H, LN. Tee (é we F Ce
+hg iT a Opti fe . a
+. oe bomp ""4! ko
+Ei ently Fhe got. cul on ps _
+Lhe",38.735849056603776,38.0,0.7421383647798742,159,True,14.333333333333334,31.8,0.0,0.0,0.0,12,2
+page-3,samples/testing_pages/page-3.png,otsu,6,artifacts/ocr_profiles/page-3/otsu.png,"- Pst Tade
+So oti Deceber IG 208""
+~ _ . then | be | | lagco Coote Up &
+a ) COECOAT » 70 malt EG —
+aa then Tadee At . r COMTE
+. | Ine got scare! he “ - adeoc, —
+faa baba a4 Ce CAI OFC YOU _
+_- — Jed J 7 fee /f be early _
+420 wie ne well [ cworero oon
+i to Sleep but Tae iS kaouly Kea
+he | ge Ve i Pad adleQ got slird Ne
+) | nb a
+; a} Lh el by hh ere le Va GION e op -
+ci bed Hy 7 FE pe tal the.
+p——-. | ,Domp tladcoe [c Cl -
+BR only Prey Gc ran bold his",38.1496062992126,38.0,0.7637795275590551,127,True,11.102564102564102,25.4,0.0,0.0,0.0,8,5
+page-3,samples/testing_pages/page-3.png,otsu,11,artifacts/ocr_profiles/page-3/otsu.png,"a
+Pst 7d
+Cass 5-5/2
+Der Cher fo LOA, /
+}
+|
+7
+Al / Clan
+Tadeo
+CHOI 2
+|
+Cr)
+a
+ae
+CIC OT
+‘lo oalve colle
+then
+ladlec
+Ow,
+cK
+S
+A CIO Ce
+e
+got
+SCOIG
+e sary wo AA
+A
+A
+Hh, CN
+ifs coy
+ys os Stem
+— =
+bis
+sy ster
+Sar f,
+Ar C. ee
+—_- dein 110)
+Cc an
+“9.
+early —
+Jadeo
+Sia cuel| a
+cuore vp early
+can
+are)
+mays, gad fad¢to
+ONS kee
+ft CUIOS,
+eC
+1S
+anu
+Coats.
+Ss eeip
+U
+adeo gor Scare
+c
+oof
+(<
+41a
+ON
+pool 7
+out 6h
+He CAL nbd
+Then Fac
+cw
+QWeE
+pl
+right
+[2
+Chor
+EI
+Y WOW Uf?
+BE
+2 he
+here. sell jal lhe
+ree
+ee
+Citic ‘aa
+C/E”
+GY side
+ce ship
+a |
+!
+Bad
+30sec
+oF ol
+de
+a i
+omp
+COQ Tan.
+old
+( 'S
+E
+Cant
+LI
+ye got. cul on ti me. -
+the
+&:
+Sy",40.163636363636364,40.0,0.7272727272727273,165,True,15.256410256410257,33.0,0.0,0.0,0.0,15,8
+page-3,samples/testing_pages/page-3.png,otsu,12,artifacts/ocr_profiles/page-3/otsu.png,"a
+Pst 7d
+Cass 5-5/2
+Der Cher fo LOA, /
+7
+Al / Gas
+lackro
+CHOI 2
+|
+Cr)
+CIC OT
+7O
+matte collee
+then
+acl
+Row
+cK
+S
+A CIO Ce
+JS""
+SCOIG
+e sary wo AA
+A
+A!
+lhea
+ifs coy
+ys os Stem
+— =
+bis
+SySter
+Sar f,
+Ar C. ee
+de a za)
+Cc an
+“ip I.
+early —
+—
+Jadeo
+Sia cuel| a
+cuore vp early
+~—_ _ a0
+are)
+mays, S, ‘lad Jo SAACO
+ONS kee
+ft CUIOS,
+eC
+1S
+anu
+Coats.
+[ns
+ko
+S eeip
+U
+adeo gor Scare
+c
+|
+rg
+_gof
+(<
+Ch
+ON
+~youky C,
+c
+out 6h
+He CAL nbd
+hr ligt
+them ac
+cw
+QWeE
+Bri
+rol
+[2
+Chor
+Y WOW Uf?
+e bhp
+here. sell jal lhe
+hey
+ON
+Citic ‘aa
+C/E”
+—_
+GY fe
+CH“ AS
+ce ship
+AP” a me oa ore
+!
+Ved
+cf 20sec.
+(of a
+de
+omp
+COQ Tan.
+old
+( 'S
+FE a A NE SO GE NY ANE ee ee
+Cant
+LI
+ye got. cul on ti me. -
+the
+&:
+Sy",39.076502732240435,38.0,0.7213114754098361,183,True,16.743589743589745,36.6,0.0,0.0,0.0,19,9
+page-3,samples/testing_pages/page-3.png,adaptive_line_removal,4,artifacts/ocr_profiles/page-3/adaptive_line_removal.png,"Oss Salt ; - Leeeb ebelE L976"" oa!
+4 200. ra? — eit
+C1 ASE CeO
+cneata-to anlte ¢ oll eC
+42 om SACI as [Oc
+_—9¢f_sea om rd__h he segpemd AAA
+a eee aa tO id coh Onc YOU fo
+s a fewiox Ee eae cacly a
+a mi —0.0I=_ yO. Poel ae zo [3) OLS 121
+fe tat O eo his aml esate
+af. 9 cep — but le lode go sad
+aT —\ ooku. «the 2% (TG Cvtulac (OG) as__
+~ Be ap ky Eth Span hc_} OUSE.__
+ne eo he hea his Caoai UY Uy cake up. _
+ty A Thee wel za L bh Co
+Cte arent _—
+- =~.
+ye
+ee
+bed te
+ate ees ship
+i en et ee 2 O4——— Gi a
+old f_h! SD
+“i eee “OM —dadg. O Fan_
+| kaowly they got ok L, |
+aa the bad. -_ ~g CALLAN. |
+ee",28.350649350649352,27.0,0.8896103896103896,154,True,14.76923076923077,30.8,0.0,0.0,0.0,11,16
+page-3,samples/testing_pages/page-3.png,adaptive_line_removal,6,artifacts/ocr_profiles/page-3/adaptive_line_removal.png,"a ee EE EE
+——Tehiscb5i2  — Decebeclo 20%"",
+he a nr,
+a n__ladeo sow a Shddlows
+se egok_scard he seryemd AAA
+Sh betaling —c fee. ian ently
+os a Tadeo. siad cell I cioletue Goel —~
+wale = , add_—_aok. yo Sia Tag 2_ 14 Facets bape
+cS — 1 co0s_ 8/00 bhe his acaily cJeata.—
+—[.-——___ to Sleep but Tadeo gok_scard le.
+2 gor. hk Bad an dt10.i5-lovsalecliing -L
+a Svoukube the out 0 the cpiadoar_
+pol Beight Nigh thes Dbagea—fhe-house—
+Ss ee DP 10 |, Thea his Cacrilly woheup.
+ae thes ho J the re sclbé tal fbhe _
+a bed Vig leiche —tatak
+on pbomp—fadeo—taa fold his",26.054545454545455,25.0,0.9272727272727272,110,True,13.923076923076923,22.0,0.0,0.0,0.0,5,14
+page-3,samples/testing_pages/page-3.png,adaptive_line_removal,11,artifacts/ocr_profiles/page-3/adaptive_line_removal.png,"~ ——
+—
+E
+grr ee
+Veude.
+i
+—
+a
+ws 5S
+O=oih
+tb <celoet ef
+le 265!
+SS Oo
+=
+~_
+The Lgl
+i
+Lae Logica
+colle ups
+thea
+éaeat bo fo Oa
+We © see eo
+a “ee
+SACI a _S
+—gek_se ar rd__} speed ADK
+_
+Aly
+oy
+si sfer
+——_.
+~ s—_sislen sind d casbag
+Onc YOU __. oe
+as
+_
+———
+Pee
+cwel| Po) ey
+Ete eae aly
+a lax Seo Sta
+1p earl
+———f
+OOAd_A01= YOU » Sad Ta eC0 zo /3 OMS MZ
+——
+Facog E20
+e_ his acALh esate
+9S ep — by uk le lode got _Scar¢
+—
+gk te tad
+was! Gwla Lelaing..
+seas
+ku. aT ~hp re oYVv
+(TA
+eva Mogi
+gph kg
+Ele as m_k hc cfr. C..—
+CAL
+Eacat cua up. _
+fe
+| _ ol 6
+| bn ae
+ra
+? Dee osele_ pak lhe
+——
+“
+ee ee
+er
+J
+fe
+= OLEAT
+- =e
+—_-
+———_—_..
+t
+| OY. oS
+ah Ow,
+uf. jas a xh) ‘Dp
+~—.
+—-—_, GCC.
+_—
+—|_ boa p—fade ote ran.
+fold bds_
+a
+1
+—_ bam if
+the en
+|
+—=-
+=
+a
+— _",32.19796954314721,32.0,0.8375634517766497,197,True,18.58974358974359,39.4,0.0,0.0,0.0,20,20
+page-3,samples/testing_pages/page-3.png,adaptive_line_removal,12,artifacts/ocr_profiles/page-3/adaptive_line_removal.png,"—
+grr ee
+Veude.
+i
+—
+le Zant
+a
+ws 5S
+Bapif-
+<celoet ef
+=
+~_
+8
+fo aes Ta
+colle ups
+Hea —
+éaeat bo fo Oa
+We © see eo
+“ee
+SACI a___Ss
+_k_sa ar rd__} e—sepemnd ARK
+_
+si sfer
+——_.
+iS sisher -fiad coh
+Onc YOU __. oe
+|
+—=
+ee
+Pee
+cwel| Po) ey
+Ete eae aly
+a lax Seo Sia
+1p earl
+OOAd_A01= YOU » Sad Tadlo zo /3 OMS MZ
+—
+Facog E20
+earns tant esate
+9S ep — by uk le lode got_scar¢
+—
+gk te tad
+C/E. ig. | celghcling.
+Ee
+ku. aT ~he ey
+wi
+CC.
+Lh 2 tua Moe.
+gph kg
+f the p baa A“\__ ble cfr. C..—
+—
+ol.
+CAL
+Eacat cua up. _
+ee Se
+CA, __
+ra
+? Dee osele_ pak lhe
+——
+—
+ee ee
+ne
+= OLEAT
+—_-
+———_—_..
+t
+Ut. was 2 Shy ‘Dp
+BOscc__
+~ ~2pb as
+OC___ CL.
+bom p—jfadeo- Cana.
+old his
+in ——
+re x aa)
+bam if
+=
+=
+ey
+— _",31.485714285714284,32.0,0.8685714285714285,175,True,17.102564102564102,35.0,0.0,0.0,0.0,17,19

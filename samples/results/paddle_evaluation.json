@@ -1,0 +1,7 @@
+[
+  {
+    "sample_id": "page-1",
+    "ground_truth": "Pisd79\nclass 5-512\n\nTadeo\nDeceber 15 202?\n\nThe light\n\nAt 7:00am Tadeo woke up\nthen he went to make coffee\nThen Tadeo saw a shadow\nhe got scard he scrymd AAA\nA! then it was his sister\nhis sister siad, \"why are you\ndrinking coffee it to early\"\nTadeo siad well I wokeup early\nand not you siad Tadeo 3 hours later\nit was 8:00 the his family went\nto sleep but Tadeo got scard he\ngot his iPad and was watching\nyoutube the out of the window\nbright light then baam the house\nbrok he then his family woke up\nthey hid there self in the\nbed then Tadeo went\noutside it was a ship\nit had 30 sec of a\nboomp Tadeo ran told his\nfamily they got out on time\nthe end.",
+    "predicted": "Tadeo\nps179\nDeceber15202\nclass5512\nThe light\nA 7.o0an Tagco avoke un\n1\n-\nthco hs aeat to male coltre\nHhen Tadco sac a shdda\ngat scord he scrxmd AAA\nhe\nHhea it aas his sister\n to eary\ndialiag coffee\nTadeo siad aell  coheup early\nand aot yoo siad Tudco 13acs lite\nit aas 8.0O Hhe his amily geat\nto sleep but Tadeo got scard he\nPad aad was catching\ngot. h'\nBr iaht ligk thep bacn Hhe house\nlhey hid thcre srlt inl Lhc\nbed thn\nTadc aent\noetsidet\ncship\nCas\nifhad 30scc\nofa\nbanp Tadco raa Fold h's\nlamily fhcy got act on time\nthe tnd."
+  }
+]

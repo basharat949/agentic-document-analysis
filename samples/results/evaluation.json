@@ -1,0 +1,17 @@
+[
+  {
+    "sample_id": "page-1",
+    "ground_truth": "Pisd79\nclass 5-512\n\nTadeo\nDecember 15 202?\n\nThe light\n\nAt 7:00am Tadeo woke up\nthen he went to make coffee\nthen Tadeo saw a shadow\nhe got scared he scrymd AAA\nA! then it was his sister\nhis sister siad \"why are you drinking coffee it to early\"\nTadeo siad well I woke up early\nand not you siad Tadeo\n3 hours later\nit was 8:00 ...",
+    "predicted": "TP\nEla é"
+  },
+  {
+    "sample_id": "page-2",
+    "ground_truth": "In the future I will\nbecome a bus driver\nbecause I want to be\n... (complete from original page)",
+    "predicted": ""
+  },
+  {
+    "sample_id": "page-3",
+    "ground_truth": "(same story as page 1 if this page is intentionally duplicated, otherwise transcribe separately)",
+    "predicted": "H 7 cal fedéo—taa fold hs S| _-\n, /\n! |"
+  }
+]

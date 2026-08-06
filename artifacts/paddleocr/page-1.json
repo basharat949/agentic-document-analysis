@@ -1,0 +1,342 @@
+[
+  {
+    "page": "page-1-small.png",
+    "source_image": "samples/testing_pages/page-1-small.png",
+    "engine_name": "PaddleOCR",
+    "detection_model": "PP-OCRv5_mobile_det",
+    "recognition_model": "PP-OCRv5_mobile_rec",
+    "raw_text": "Tadeo\nps179\nDeceber15202\nclass5512\nThe light\nA 7.o0an Tagco avoke un\n1\n-\nthco hs aeat to male coltre\nHhen Tadco sac a shdda\ngat scord he scrxmd AAA\nhe\nHhea it aas his sister\n to eary\ndialiag coffee\nTadeo siad aell  coheup early\nand aot yoo siad Tudco 13acs lite\nit aas 8.0O Hhe his amily geat\nto sleep but Tadeo got scard he\nPad aad was catching\ngot. h'\nBr iaht ligk thep bacn Hhe house\nlhey hid thcre srlt inl Lhc\nbed thn\nTadc aent\noetsidet\ncship\nCas\nifhad 30scc\nofa\nbanp Tadco raa Fold h's\nlamily fhcy got act on time\nthe tnd.",
+    "recognized_lines": [
+      {
+        "text": "Tadeo",
+        "confidence": 0.9748468399047852,
+        "box": [
+          898,
+          5,
+          1226,
+          125
+        ]
+      },
+      {
+        "text": "ps179",
+        "confidence": 0.7722717523574829,
+        "box": [
+          41,
+          28,
+          346,
+          139
+        ]
+      },
+      {
+        "text": "Deceber15202",
+        "confidence": 0.7793702483177185,
+        "box": [
+          769,
+          61,
+          1404,
+          226
+        ]
+      },
+      {
+        "text": "class5512",
+        "confidence": 0.8894630074501038,
+        "box": [
+          42,
+          112,
+          495,
+          224
+        ]
+      },
+      {
+        "text": "The light",
+        "confidence": 0.8798343539237976,
+        "box": [
+          346,
+          254,
+          774,
+          372
+        ]
+      },
+      {
+        "text": "A 7.o0an Tagco avoke un",
+        "confidence": 0.657636284828186,
+        "box": [
+          50,
+          327,
+          1264,
+          438
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.37666910886764526,
+        "box": [
+          748,
+          385,
+          763,
+          404
+        ]
+      },
+      {
+        "text": "-",
+        "confidence": 0.4145773649215698,
+        "box": [
+          1210,
+          392,
+          1217,
+          399
+        ]
+      },
+      {
+        "text": "thco hs aeat to male coltre",
+        "confidence": 0.7609938979148865,
+        "box": [
+          53,
+          405,
+          1330,
+          518
+        ]
+      },
+      {
+        "text": "Hhen Tadco sac a shdda",
+        "confidence": 0.8048404455184937,
+        "box": [
+          81,
+          494,
+          1201,
+          583
+        ]
+      },
+      {
+        "text": "gat scord he scrxmd AAA",
+        "confidence": 0.8468782305717468,
+        "box": [
+          212,
+          537,
+          1367,
+          678
+        ]
+      },
+      {
+        "text": "he",
+        "confidence": 0.9764293432235718,
+        "box": [
+          72,
+          588,
+          158,
+          649
+        ]
+      },
+      {
+        "text": "Hhea it aas his sister",
+        "confidence": 0.7436587810516357,
+        "box": [
+          279,
+          644,
+          1226,
+          729
+        ]
+      },
+      {
+        "text": " to eary",
+        "confidence": 0.7692678570747375,
+        "box": [
+          683,
+          776,
+          1170,
+          871
+        ]
+      },
+      {
+        "text": "dialiag coffee",
+        "confidence": 0.794076144695282,
+        "box": [
+          48,
+          780,
+          606,
+          891
+        ]
+      },
+      {
+        "text": "Tadeo siad aell  coheup early",
+        "confidence": 0.7718798518180847,
+        "box": [
+          51,
+          851,
+          1287,
+          954
+        ]
+      },
+      {
+        "text": "and aot yoo siad Tudco 13acs lite",
+        "confidence": 0.673072874546051,
+        "box": [
+          40,
+          921,
+          1358,
+          1028
+        ]
+      },
+      {
+        "text": "it aas 8.0O Hhe his amily geat",
+        "confidence": 0.7836573123931885,
+        "box": [
+          50,
+          992,
+          1372,
+          1101
+        ]
+      },
+      {
+        "text": "to sleep but Tadeo got scard he",
+        "confidence": 0.8599826693534851,
+        "box": [
+          53,
+          1059,
+          1349,
+          1176
+        ]
+      },
+      {
+        "text": "Pad aad was catching",
+        "confidence": 0.8225072026252747,
+        "box": [
+          408,
+          1143,
+          1382,
+          1244
+        ]
+      },
+      {
+        "text": "got. h'",
+        "confidence": 0.7371703386306763,
+        "box": [
+          59,
+          1141,
+          453,
+          1258
+        ]
+      },
+      {
+        "text": "Br iaht ligk thep bacn Hhe house",
+        "confidence": 0.6814014911651611,
+        "box": [
+          53,
+          1276,
+          1407,
+          1403
+        ]
+      },
+      {
+        "text": "lhey hid thcre srlt inl Lhc",
+        "confidence": 0.698845624923706,
+        "box": [
+          79,
+          1439,
+          1288,
+          1540
+        ]
+      },
+      {
+        "text": "bed thn",
+        "confidence": 0.5916357040405273,
+        "box": [
+          84,
+          1514,
+          564,
+          1617
+        ]
+      },
+      {
+        "text": "Tadc aent",
+        "confidence": 0.7851201891899109,
+        "box": [
+          620,
+          1505,
+          1199,
+          1615
+        ]
+      },
+      {
+        "text": "oetsidet",
+        "confidence": 0.8703464269638062,
+        "box": [
+          92,
+          1591,
+          550,
+          1668
+        ]
+      },
+      {
+        "text": "cship",
+        "confidence": 0.8007587194442749,
+        "box": [
+          837,
+          1598,
+          1232,
+          1689
+        ]
+      },
+      {
+        "text": "Cas",
+        "confidence": 0.5382083058357239,
+        "box": [
+          631,
+          1611,
+          828,
+          1679
+        ]
+      },
+      {
+        "text": "ifhad 30scc",
+        "confidence": 0.8154727816581726,
+        "box": [
+          79,
+          1643,
+          841,
+          1758
+        ]
+      },
+      {
+        "text": "ofa",
+        "confidence": 0.7889830470085144,
+        "box": [
+          799,
+          1669,
+          1235,
+          1751
+        ]
+      },
+      {
+        "text": "banp Tadco raa Fold h's",
+        "confidence": 0.7764423489570618,
+        "box": [
+          89,
+          1730,
+          1259,
+          1837
+        ]
+      },
+      {
+        "text": "lamily fhcy got act on time",
+        "confidence": 0.7892502546310425,
+        "box": [
+          60,
+          1795,
+          1275,
+          1938
+        ]
+      },
+      {
+        "text": "the tnd.",
+        "confidence": 0.7731833457946777,
+        "box": [
+          78,
+          1884,
+          407,
+          1962
+        ]
+      }
+    ]
+  }
+]
