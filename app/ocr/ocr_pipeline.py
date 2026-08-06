@@ -4,20 +4,36 @@ from __future__ import annotations
 
 import logging
 import re
-from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any
 
 import numpy as np
 import pytesseract
-from pytesseract import Output
-from pytesseract.pytesseract import TesseractError, TesseractNotFoundError
 
+from app.ocr.engine import (
+    OCRDataError,
+    OCREngine,
+    OCREngineNotFoundError,
+    OCRExecutionError,
+    OCRPipelineError,
+    OCRToken,
+)
 from app.ocr.preprocessing import ImagePath, preprocess_image
+from app.ocr.tesseract_engine import TesseractEngine
 
 LOGGER = logging.getLogger(__name__)
 
-_ENGINE_NAME = "Tesseract"
+__all__ = (
+    "InvalidConfidenceThresholdError",
+    "OCRDataError",
+    "OCREngineNotFoundError",
+    "OCRExecutionError",
+    "OCRPipelineError",
+    "OCRRegion",
+    "OCRResult",
+    "extract_text_and_sentences",
+    "pytesseract",
+)
+
 _METADATA_LINE_LIMIT = 5
 _METADATA_HEIGHT_RATIO = 0.20
 _MAX_TITLE_WORDS = 8
@@ -45,24 +61,8 @@ _TITLE_WORD_PATTERN = re.compile(r"[A-Za-z][A-Za-z'’-]*")
 _SENTENCE_BOUNDARY_PATTERN = re.compile(r"(?<=[.!?])\s+")
 
 
-class OCRPipelineError(RuntimeError):
-    """Base exception for failures in the OCR stage."""
-
-
 class InvalidConfidenceThresholdError(ValueError):
     """Raised when the configured OCR confidence threshold is invalid."""
-
-
-class OCREngineNotFoundError(OCRPipelineError):
-    """Raised when the Tesseract executable is unavailable."""
-
-
-class OCRExecutionError(OCRPipelineError):
-    """Raised when Tesseract fails while processing an image."""
-
-
-class OCRDataError(OCRPipelineError):
-    """Raised when Tesseract returns malformed tabular OCR data."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -128,6 +128,7 @@ class _OCRLine:
 def extract_text_and_sentences(
     image_path: ImagePath,
     confidence_threshold: float = 60.0,
+    engine: OCREngine | None = None,
 ) -> OCRResult:
     """Preprocess an image and extract text, sentences, and uncertain regions.
 
@@ -135,6 +136,8 @@ def extract_text_and_sentences(
         image_path: Path accepted by :func:`preprocess_image`.
         confidence_threshold: Exclusive lower-bound confidence cutoff. Every
             non-empty token with a score below this value is flagged.
+        engine: Explicit OCR adapter. Defaults to Tesseract for backward
+            compatibility; low-level extraction never reads environment state.
 
     Returns:
         Immutable OCR output containing original text and derived body content.
@@ -151,15 +154,16 @@ def extract_text_and_sentences(
     LOGGER.info("Starting OCR extraction for %s", image_path)
 
     processed_image = preprocess_image(image_path)
-    data = _run_tesseract(processed_image)
-    lines, low_confidence_regions = _parse_ocr_data(data, threshold)
+    selected_engine = engine if engine is not None else TesseractEngine()
+    extraction = selected_engine.extract(processed_image)
+    lines, low_confidence_regions = _build_lines_and_regions(
+        extraction.tokens, threshold
+    )
 
     raw_text = "\n".join(line.text for line in lines)
     body_lines, excluded_lines = _exclude_metadata(lines, processed_image.shape[0])
     body_text = "\n".join(line.text for line in body_lines)
     sentences = _segment_sentences(body_text)
-    engine_version = _get_engine_version()
-
     LOGGER.info(
         "Finished OCR extraction for %s: %d lines, %d low-confidence regions",
         image_path,
@@ -172,8 +176,8 @@ def extract_text_and_sentences(
         sentences=sentences,
         low_confidence_regions=low_confidence_regions,
         excluded_metadata_lines=excluded_lines,
-        engine_name=_ENGINE_NAME,
-        engine_version=engine_version,
+        engine_name=extraction.engine_name,
+        engine_version=extraction.engine_version,
     )
 
 
@@ -191,81 +195,40 @@ def _validate_confidence_threshold(value: float) -> float:
     return threshold
 
 
-def _run_tesseract(image: np.ndarray) -> Mapping[str, Sequence[Any]]:
-    """Execute Tesseract and translate engine failures to public exceptions."""
-    try:
-        data = pytesseract.image_to_data(image, output_type=Output.DICT)
-    except TesseractNotFoundError as exc:
-        LOGGER.exception("Tesseract executable was not found")
-        raise OCREngineNotFoundError(
-            "Tesseract executable was not found; install it or configure "
-            "pytesseract.pytesseract.tesseract_cmd"
-        ) from exc
-    except TesseractError as exc:
-        LOGGER.exception("Tesseract failed while extracting OCR data")
-        raise OCRExecutionError(f"Tesseract OCR execution failed: {exc}") from exc
-    except OSError as exc:
-        LOGGER.exception("Operating system failed to execute Tesseract")
-        raise OCRExecutionError(f"Could not execute Tesseract: {exc}") from exc
-
-    if not isinstance(data, Mapping):
-        raise OCRDataError("Tesseract returned OCR data in an unexpected format")
-    return data
-
-
-def _parse_ocr_data(
-    data: Mapping[str, Sequence[Any]],
+def _build_lines_and_regions(
+    tokens: tuple[OCRToken, ...],
     confidence_threshold: float,
 ) -> tuple[tuple[_OCRLine, ...], tuple[OCRRegion, ...]]:
-    """Build ordered lines and low-confidence regions from Tesseract rows."""
-    required_fields = ("text", "conf", "left", "top", "width", "height")
-    missing_fields = [field for field in required_fields if field not in data]
-    if missing_fields:
-        raise OCRDataError(
-            "Tesseract OCR data is missing fields: " + ", ".join(missing_fields)
-        )
-
-    row_count = len(data["text"])
-    if any(len(data[field]) != row_count for field in required_fields):
-        raise OCRDataError("Tesseract OCR data columns have inconsistent lengths")
-
+    """Build existing pipeline lines and low-confidence regions from tokens."""
     line_tokens: dict[tuple[int | None, ...], list[str]] = {}
     line_tops: dict[tuple[int | None, ...], int] = {}
     regions: list[OCRRegion] = []
 
-    for index in range(row_count):
-        text = str(data["text"][index])
-        if not text.strip():
-            continue
+    for token in tokens:
+        fallback_top = token.top if token.line_num is None else None
+        line_key = (
+            token.page_num,
+            token.block_num,
+            token.paragraph_num,
+            token.line_num,
+            fallback_top,
+        )
+        line_tokens.setdefault(line_key, []).append(token.text)
+        line_tops.setdefault(line_key, token.top)
 
-        confidence = _parse_float(data["conf"][index], "conf", index)
-        left = _parse_int(data["left"][index], "left", index)
-        top = _parse_int(data["top"][index], "top", index)
-        width = _parse_int(data["width"][index], "width", index)
-        height = _parse_int(data["height"][index], "height", index)
-        page_num = _optional_identifier(data, "page_num", index)
-        block_num = _optional_identifier(data, "block_num", index)
-        paragraph_num = _optional_identifier(data, "par_num", index)
-        line_num = _optional_identifier(data, "line_num", index)
-        fallback_top = top if line_num is None else None
-        line_key = (page_num, block_num, paragraph_num, line_num, fallback_top)
-
-        line_tokens.setdefault(line_key, []).append(text)
-        line_tops.setdefault(line_key, top)
-
-        if confidence < confidence_threshold:
+        if token.confidence < confidence_threshold:
             regions.append(
                 OCRRegion(
-                    text=text,
-                    confidence=confidence,
-                    left=left,
-                    top=top,
-                    width=width,
-                    height=height,
-                    page_num=page_num,
-                    block_num=block_num,
-                    paragraph_num=paragraph_num,
-                    line_num=line_num,
+                    text=token.text,
+                    confidence=token.confidence,
+                    left=token.left,
+                    top=token.top,
+                    width=token.width,
+                    height=token.height,
+                    page_num=token.page_num,
+                    block_num=token.block_num,
+                    paragraph_num=token.paragraph_num,
+                    line_num=token.line_num,
                 )
             )
 
@@ -274,40 +237,6 @@ def _parse_ocr_data(
         for key, tokens in line_tokens.items()
     )
     return lines, tuple(regions)
-
-
-def _parse_float(value: Any, field: str, index: int) -> float:
-    """Parse a finite floating-point value from an OCR data row."""
-    try:
-        result = float(value)
-    except (TypeError, ValueError) as exc:
-        raise OCRDataError(f"Invalid {field!r} value at OCR row {index}") from exc
-    if not np.isfinite(result):
-        raise OCRDataError(f"Non-finite {field!r} value at OCR row {index}")
-    return result
-
-
-def _parse_int(value: Any, field: str, index: int) -> int:
-    """Parse an integer value from an OCR data row."""
-    try:
-        return int(value)
-    except (TypeError, ValueError) as exc:
-        raise OCRDataError(f"Invalid {field!r} value at OCR row {index}") from exc
-
-
-def _optional_identifier(
-    data: Mapping[str, Sequence[Any]],
-    field: str,
-    index: int,
-) -> int | None:
-    """Return an optional Tesseract hierarchy identifier."""
-    values = data.get(field)
-    if values is None or index >= len(values):
-        return None
-    value = values[index]
-    if value is None or str(value).strip() == "":
-        return None
-    return _parse_int(value, field, index)
 
 
 def _exclude_metadata(
@@ -356,12 +285,3 @@ def _segment_sentences(text: str) -> tuple[str, ...]:
         for sentence in _SENTENCE_BOUNDARY_PATTERN.split(text)
         if sentence.strip()
     )
-
-
-def _get_engine_version() -> str | None:
-    """Return the Tesseract version without making it required for a result."""
-    try:
-        return str(pytesseract.get_tesseract_version())
-    except (TesseractNotFoundError, TesseractError, OSError):
-        LOGGER.warning("Could not determine Tesseract version", exc_info=True)
-        return None
