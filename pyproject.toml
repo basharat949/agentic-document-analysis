@@ -5,10 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "numpy>=2.5.1",
+    "numpy>=2.3.5,<2.4",
     "opencv-python>=5.0.0.93",
     "pytesseract>=0.3.13",
     "spacy>=3.8.14",
+]
+
+[project.optional-dependencies]
+paddle = [
+    "paddleocr==3.7.0",
+    "paddlepaddle==3.0.0",
 ]
 
 [dependency-groups]

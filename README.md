@@ -11,7 +11,7 @@ conceptual document flow is:
 ```text
 Image or scanned page
   -> OpenCV preprocessing
-  -> Tesseract OCR
+  -> selectable OCR adapter (Tesseract by default; optional PaddleOCR)
   -> conservative metadata exclusion
   -> deterministic sentence segmentation
   -> batch classifier
@@ -20,9 +20,10 @@ Image or scanned page
   -> evaluation
 ```
 
-OCR is traditional: preprocessing uses OpenCV and NumPy, and extraction uses
-Tesseract through `pytesseract`. No LLM is used for image preprocessing, OCR,
-metadata exclusion, or sentence segmentation.
+OCR is local and non-LLM-based: preprocessing uses OpenCV and NumPy, while a
+shared adapter contract supports Tesseract through `pytesseract` and optional
+PaddleOCR PP-OCRv5 inference. Tesseract remains the default. No LLM is used for
+image preprocessing, OCR, metadata exclusion, or sentence segmentation.
 
 The sentence-classification orchestrator is implemented and tested with injected
 fake/mock clients. This repository does **not** contain a real LLM provider
@@ -33,7 +34,7 @@ adapter, a running web service, or an end-to-end PDF upload system.
 | Area | Status | What exists |
 |---|---|---|
 | Image preprocessing | Implemented | Validation, grayscale conversion, CLAHE, median denoising, adaptive thresholding, OpenCV deskew, light morphological closing, and binary output |
-| OCR extraction | Implemented | Tesseract word text, confidence, bounding boxes, ordered lines, raw/body text, and low-confidence regions |
+| OCR extraction | Implemented | Selectable Tesseract and optional PaddleOCR adapters, normalized confidence, bounding boxes, ordered lines, raw/body text, and low-confidence regions |
 | Sentence segmentation | Implemented | Deterministic punctuation-based segmentation without spelling or grammar correction |
 | OCR evaluation | Implemented | CER, WER, one-to-one Sentence F1, composite score, JSON validation, aggregation, and CLI reporting |
 | Agent prompts | Implemented | Classifier and Embedded Sentence Agent prompts plus difficult examples and strict JSON contracts |
@@ -51,7 +52,7 @@ The implemented OCR and classification logic has an explicit boundary:
 ```mermaid
 flowchart TD
     Image[Image / scanned page] --> Prep[OpenCV preprocessing]
-    Prep --> OCR[Tesseract OCR]
+    Prep --> OCR[OCR adapter: Tesseract default / optional PaddleOCR]
     OCR --> Meta[Metadata exclusion]
     Meta --> Sentences[Sentence extraction]
     Sentences --> Boundary[[TRADITIONAL OCR ENDS HERE]]
@@ -66,7 +67,7 @@ flowchart TD
 Plain-text fallback:
 
 ```text
-Image -> preprocessing -> Tesseract -> metadata exclusion -> sentences
+Image -> preprocessing -> selected OCR adapter -> metadata exclusion -> sentences
 =======================================================================
                       TRADITIONAL OCR ENDS HERE
 =======================================================================
@@ -84,8 +85,14 @@ storage design is documentation-only; see
 
 ```text
 app/ocr/
+  config.py                     Centralized environment configuration
+  engine.py                     Shared OCR adapter protocol and immutable models
+  factory.py                    Explicit Tesseract/PaddleOCR engine selection
   preprocessing.py              OpenCV image preprocessing
-  ocr_pipeline.py               Tesseract extraction and sentence segmentation
+  tesseract_engine.py           Default Tesseract adapter
+  paddle_engine.py              Optional lazy PaddleOCR PP-OCRv5 adapter
+  ocr_pipeline.py               Common OCR result and sentence segmentation
+  cli.py                        Selectable-engine JSON command-line runner
 assessment/
   task1_1.md                    Preprocessing write-up
   task1_2.md                    OCR pipeline write-up
@@ -106,6 +113,8 @@ section4/
   task4_1.md                    SFS definition, examples, and limitations
   hybrid_fallback.md            Traditional OCR + Vision fallback design
 tests/                          OCR, evaluation, orchestration, retry, and SFS tests
+tools/
+  compare_ocr_profiles.py       Deterministic OCR-profile comparison utility
 ```
 
 Every path above exists in the repository. Section 3 and the hybrid fallback are
@@ -113,11 +122,11 @@ design documents, not deployed infrastructure.
 
 ## Core technical decisions
 
-- **Tesseract rather than Torch-based OCR:** it provides local, deterministic,
-  inspectable OCR data with confidence and geometry while avoiding a large
-  deep-learning runtime for this assessment environment.
-- **No LLM in OCR:** OCR text remains attributable to Tesseract and deterministic
-  rules; classification begins only after sentence extraction.
+- **Tesseract remains the default:** it provides local, deterministic,
+  inspectable OCR data with confidence and geometry while keeping the normal
+  assessment environment lightweight. PaddleOCR is an explicit optional choice.
+- **No LLM in OCR:** OCR text remains attributable to the selected local engine
+  and deterministic rules; classification begins only after sentence extraction.
 - **Hand-written orchestration rather than LangGraph:** the routing graph is
   small, fixed, and clearer as ordinary Python with explicit invariants.
 - **Code-enforced routing:** only `SentenceCategory.INCOMPLETE` invokes the
@@ -157,20 +166,42 @@ Install the Python project and development dependencies:
 uv sync
 ```
 
+PaddleOCR is optional. Install its dependency extra only when needed:
+
+```bash
+uv sync --extra paddle
+```
+
+The locked, proven optional versions are PaddlePaddle 3.0.0 and PaddleOCR
+3.7.0. This configuration was verified on macOS x86_64 (Intel), Python 3.12,
+with CPU inference. Other platforms may have different wheel availability or
+native-runtime behavior.
+
+Paddle model files download on first use and are not stored in this repository.
+CPU inference is slower and heavier than Tesseract, native compatibility varies
+by platform, and large images are downscaled to a maximum 2000-pixel side before
+inference by default.
+
 ## Running tests
 
 Run the full test suite, lint checks, and compilation checks:
 
 ```bash
-uv run pytest -v
+uv run pytest -q
 uv run ruff check .
-uv run python -m compileall app section1 section2 section4 tests
+uv run python -m compileall app tests
 ```
+
+The final lightweight validation result was `244 passed, 1 skipped`. The skip is
+the explicitly gated real PaddleOCR smoke test. Normal tests and CI do not need
+the Paddle extra, initialize PaddleOCR, download models, or require network
+access.
 
 Section 2 tests use deterministic fake/mock clients. They verify orchestration,
 validation, batching, routing, and retry behavior, but they do not measure a real
 LLM. The OCR suite includes an integration-style smoke test that runs real
-Tesseract when the executable is installed; otherwise that test is skipped.
+Tesseract when the executable is installed. Mocked Paddle adapter tests do not
+import PaddleOCR or download models. Real Paddle inference is separately gated.
 
 ## Running OCR manually
 
@@ -190,6 +221,152 @@ for region in result.low_confidence_regions:
 
 `raw_text` retains all extracted lines. `body_text` and `sentences` exclude only
 lines matched by the conservative metadata heuristic.
+
+To select PaddleOCR explicitly in Python:
+
+```python
+from app.ocr.factory import create_ocr_engine
+from app.ocr.ocr_pipeline import extract_text_and_sentences
+
+engine = create_ocr_engine("paddle")
+result = extract_text_and_sentences("path/to/document.png", engine=engine)
+```
+
+The low-level pipeline does not read environment variables. Configuration is
+resolved once at the CLI boundary with this precedence:
+
+1. explicit CLI `--engine`;
+2. `OCR_ENGINE`; and
+3. the default, `tesseract`.
+
+The repository provides `.env.example` with `OCR_ENGINE=tesseract`. A real
+`.env` is ignored and is not automatically loaded; export the variable or
+prefix the command. Valid end-to-end commands are:
+
+```bash
+# Tesseract (also the default when OCR_ENGINE is absent)
+OCR_ENGINE=tesseract \
+uv run python -m app.ocr.cli \
+  samples/testing_pages/page-1.png \
+  --output artifacts/ocr/tesseract-result.json
+
+# Optional PaddleOCR
+OMP_NUM_THREADS=1 \
+OPENBLAS_NUM_THREADS=1 \
+VECLIB_MAXIMUM_THREADS=1 \
+OCR_ENGINE=paddle \
+uv run --extra paddle python -m app.ocr.cli \
+  samples/testing_pages/page-1-small.png \
+  --output artifacts/ocr/paddle-result.json
+```
+
+An explicit Paddle request raises actionable errors when its optional runtime is
+missing; it never silently falls back to Tesseract.
+
+The JSON output contains `source_image`, `configured_engine`, `engine_name`,
+`engine_version`, `raw_text`, `body_text`, `sentences`,
+`excluded_metadata_lines`, and `low_confidence_regions`. Each low-confidence
+region includes confidence, source-image geometry, and page/line identifiers.
+
+## Handwritten OCR Engine Evaluation
+
+Tesseract was initially used as the OCR baseline for handwritten document
+images. On the supplied handwritten test document, its transcription was
+largely unusable, so PaddleOCR PP-OCRv5 was evaluated as an alternative
+handwriting OCR engine.
+
+### PaddleOCR environment
+
+PaddlePaddle 3.0.0 and PaddleOCR 3.7.0 were installed and verified natively on
+macOS x86_64 (Intel), using Python 3.12 and CPU inference. The PaddlePaddle CPU
+verification check completed successfully. Paddle remains an optional dependency
+extra so the default project environment stays lightweight.
+
+### Models and inference configuration
+
+The initial attempt used `PP-OCRv5_server_det` and `PP-OCRv5_server_rec`. The
+original image was 4959x7017 pixels, and native server-model inference
+encountered a segmentation fault after PaddleOCR attempted to resize this
+oversized input.
+
+For a stable experiment, the image was downscaled to 1413x2000 pixels and
+processed with:
+
+- `PP-OCRv5_mobile_det`
+- `PP-OCRv5_mobile_rec`
+- CPU inference with MKL-DNN disabled and CPU threads limited
+- `text_det_limit_side_len=1600`
+- `text_det_limit_type="max"`
+
+This configuration successfully processed the handwritten page. Downscaling
+improved inference stability, although it may have removed fine handwriting
+detail.
+
+The implemented adapter safely downsizes oversized inputs without cropping,
+maps detected coordinates back to the original preprocessed-image space, and
+normalizes confidence from Paddle's `[0, 1]` range to the shared `[0, 100]`
+range. It reconstructs reading order geometrically rather than trusting
+detection order. Model construction is lazy and protected by an initialization
+lock; prediction calls use a separate serialization lock because native-runtime
+thread safety is not assumed. No silent Tesseract fallback occurs. The first
+Paddle run may download model files into Paddle's external cache.
+
+### Result and interpretation
+
+PaddleOCR recovered substantially more recognizable handwritten content than
+the Tesseract baseline, including names, headings, and meaningful sentence
+fragments. Against a manually prepared, best-effort ground-truth transcription
+for the one supplied handwritten `page-1`, the PaddleOCR result was:
+
+| Metric | Score |
+|---|---:|
+| CER | 0.3966 |
+| WER | 0.7704 |
+| Sentence Precision | 0.0000 |
+| Sentence Recall | 0.0000 |
+| Sentence F1 | 0.0000 |
+| Composite Score | 0.2916 |
+
+An earlier Tesseract CER of approximately 0.98 is **not** a directly comparable
+final benchmark because that evaluation used incomplete or placeholder ground
+truth. A fair numerical comparison between Tesseract and PaddleOCR requires
+rerunning both engines against the exact same finalized ground-truth set. CER
+and WER must always be calculated against human ground truth, not text generated
+by another OCR engine.
+
+OCR confidence is diagnostic engine output, not a measure of transcription
+correctness. PaddleOCR's bounding boxes should be used to reconstruct reading
+order because detection order can split or reorder fragments from the same
+handwritten line. CER and WER measure transcription error, while the
+Source-Fidelity Score complements them for fidelity-sensitive text and should
+remain part of evaluation.
+
+The experiment supports the following current decision:
+
+- **Tesseract:** implemented baseline OCR engine.
+- **PaddleOCR PP-OCRv5:** experimentally validated and currently stronger
+  candidate for the supplied handwriting, now available through an optional
+  adapter but not the default or a production deployment.
+
+The experiment does not establish production-quality handwriting recognition.
+Further benchmarking should test multiple image resolutions and model
+configurations against the same golden human-transcribed ground-truth set.
+
+A common selectable engine interface is now implemented:
+
+```text
+OCR Engine Interface
+├── TesseractOCR      # implemented baseline
+└── PaddleOCR         # optional handwriting candidate
+```
+
+Experiment evidence is preserved at:
+
+- `samples/testing_pages/page-1.png`
+- `samples/testing_pages/page-1-small.png`
+- `samples/results/paddle_evaluation.json`
+- `artifacts/paddleocr/page-1.json`
+- `artifacts/ocr_profiles/`
 
 ## Running the evaluation CLI
 
@@ -211,8 +388,11 @@ Run the evaluator:
 uv run python section1/eval.py path/to/evaluation.json
 ```
 
-The report contains per-sample and macro CER, WER, sentence precision/recall/F1,
-and the composite score.
+Here `ground_truth` must be a manually prepared human reference and `predicted`
+must be machine-generated OCR output. Machine output must never be reused as its
+own ground truth. CER and WER compare the prediction against that reference. The
+report contains per-sample and macro CER, WER, sentence precision/recall/F1, and
+the composite score.
 
 ## Running the Source-Fidelity Score
 
@@ -234,6 +414,21 @@ credit. SFS is intentionally interpreted alongside CER and WER.
   handling, routing, retries, metric calculations, and source preservation.
 - Smoke tests verify that the local Tesseract integration can execute on a real
   generated image when Tesseract is available.
+- Mocked Paddle tests cover lazy initialization, optional-dependency failures,
+  confidence/box conversion, bounded image resizing, coordinate restoration,
+  deterministic reading order, malformed/empty output, and engine selection.
+- Real Paddle inference is skipped during normal testing. Run it explicitly in
+  the optional Paddle environment with the actual gated test path:
+
+  ```bash
+  OMP_NUM_THREADS=1 \
+  OPENBLAS_NUM_THREADS=1 \
+  VECLIB_MAXIMUM_THREADS=1 \
+  RUN_PADDLE_OCR_SMOKE=1 \
+  uv run --extra paddle pytest \
+    tests/test_paddle_engine.py::test_real_paddle_smoke -v
+  ```
+
 - Labelled golden datasets are required to measure OCR quality and the quality of
   any future real LLM adapter.
 - Passing tests demonstrates implemented behavior; it does not prove perfect
@@ -242,10 +437,24 @@ credit. SFS is intentionally interpreted alongside CER and WER.
 Actual LLM quality evaluation requires both a concrete provider adapter and a
 representative labelled golden dataset. Neither is included here.
 
+## Reviewer submission checklist
+
+1. Install Python 3.12 and `uv`.
+2. Install system Tesseract (`brew install tesseract` on macOS).
+3. Run `uv sync` for the lightweight default installation.
+4. Run `uv run pytest -q`, `uv run ruff check .`, and
+   `uv run python -m compileall app tests`.
+5. Run the Tesseract CLI command in “Running OCR manually”.
+6. Optional: run `uv sync --extra paddle`.
+7. Optional: run the gated Paddle test and Paddle CLI command above. The first
+   real Paddle invocation may download external model files.
+
 ## Current limitations
 
 - Tesseract handwriting accuracy varies with writer, scan quality, ink, layout,
   and language.
+- PaddleOCR is an optional, heavier runtime; first use downloads models, CPU
+  inference is slower, and native behavior can vary across platforms.
 - Metadata exclusion uses conservative heuristics and can miss metadata or remove
   a title-like first line.
 - Sentence segmentation is rule-based and can split abbreviations or miss
